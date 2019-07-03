@@ -1,6 +1,8 @@
+package Game;
+
 public class CoOrdinates {
-    int x;
-    int y;
+    private int x;
+    private int y;
 
     CoOrdinates(int x, int y){
         this.x = x;
