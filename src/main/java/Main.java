@@ -1,6 +1,7 @@
 import Characters.Hero;
 import Display.ConsoleEngine;
 import Game.CoOrdinates;
+import Game.Game;
 import Game.Map;
 import Items.Weapon;
 import com.google.gson.Gson;
@@ -15,60 +16,24 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Main pls = new Main();
 
         FileMainpulation fm = new FileMainpulation();
+        ConsoleEngine disp = new ConsoleEngine();
 
         Hero hero = fm.createFromFile("new_test.json");
         Map map = new Map(hero.getLevel());
+        hero.coordinates.setMax(map.getSize());
 
-        ConsoleEngine disp = new ConsoleEngine();
 
 
-        System.out.println("sdfaasdf");
+        Game game = new Game(map, hero, disp);
 
-        disp.display(hero, map);
+
+        game.Loop();
+
     }
 
-
-
-    public void readInput(){
-        Scanner scanner = new Scanner(System.in);
-        String inputString;
-
-        loop: while(true){
-            System.out.println("Enter a direction: North, East, South, West Or Exit");
-            inputString = scanner.nextLine();
-
-            switch (inputString.toLowerCase()){
-
-                case "north":
-                case "n":
-                    System.out.println("Went North");
-                    break;
-
-                case "east":
-                case "e":
-                    System.out.println("Went East");
-                    break;
-
-                case "south":
-                case "s":
-                    System.out.println("Went South");
-                    break;
-
-                case "west":
-                case "w":
-                    System.out.println("Went West");
-                    break;
-
-                case "exit":
-                    break loop;
-            }
-
-        }
-
-        scanner.close();
-    }
 
 }
 

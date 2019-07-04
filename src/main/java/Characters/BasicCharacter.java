@@ -15,7 +15,7 @@ public class BasicCharacter {
     int attack;
     int defence;
     int HP;
-    @Setter CoOrdinates coordinates;
+    @Setter public CoOrdinates coordinates;
 
 //    int modAttack;
 //    int modDefence;
@@ -53,16 +53,16 @@ public class BasicCharacter {
 //        }
 //    }
 
-    void moveUp(){
+    public void moveUp(){
         coordinates.setY(coordinates.getY() + 1);
     }
-    void moveDown(){
+    public void moveDown(){
         coordinates.setY(coordinates.getY() - 1);
     }
-    void moveLeft(){
+    public void moveLeft(){
         coordinates.setX(coordinates.getX() - 1);
     }
-    void moveRight(){
+    public void moveRight(){
         coordinates.setX(coordinates.getX() + 1);
     }
 }

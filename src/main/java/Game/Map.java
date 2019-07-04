@@ -28,10 +28,11 @@ public class Map {
                         rand.nextInt(size), rand.nextInt(size));
             }
             enemiesLocations.add(newCoords);
+            System.out.println("Enemy at: x-" + newCoords.getX() + " y-" + newCoords.getY());
         }
     }
 
-    private boolean occupied(CoOrdinates coord){
+    public boolean occupied(CoOrdinates coord){
         for (CoOrdinates co : enemiesLocations){
             if (co.getX() == coord.getX() && co.getY() == coord.getY())
                 return true;
