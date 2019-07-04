@@ -1,16 +1,19 @@
 package Game;
 
 import Characters.Enemy;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Map {
+    @Getter
     int size;
-    ArrayList<CoOrdinates> enemiesLocations;
+
+    ArrayList<CoOrdinates> enemiesLocations = new ArrayList<CoOrdinates>();
     Random rand = new Random();
 
-    Map(int heroLevel){
+    public Map(int heroLevel){
         size = (heroLevel - 1) * 5 + (10 - (heroLevel % 2));
         int numEnemies = (size * size) / 3;
 

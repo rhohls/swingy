@@ -3,6 +3,7 @@ import Items.Weapon;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -29,22 +30,23 @@ public class FileMainpulation {
     public Hero createFromFile(String fileName){
         Gson gson = new Gson();
         String json = "";
+        Hero newHero = null;
         try {
             BufferedReader reader = new BufferedReader(new FileReader(fileName));
 
-            String line = reader.readLine();
+//            String line = reader.readLine();
+//
+//            while (line != null) {
+//                json += line;
+//               line = reader.readLine();
+//            }
 
-            while (line != null) {
-                json += line;
-               line = reader.readLine();
-            }
-
+             newHero = gson.fromJson(reader,  Hero.class);
         } catch (Exception e) {
             System.out.println("Error reading file: " + fileName);
             return (null);
         }
 
-        Hero newHero = gson.fromJson(json,  Hero.class);
         return (newHero);
     }
 

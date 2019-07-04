@@ -6,5 +6,5 @@ public class Game {
     Map map;
     Hero hero;
 
-    
+
 }

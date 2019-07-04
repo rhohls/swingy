@@ -13,5 +13,10 @@
   "maxHP": 32,
   "attack": 53,
   "defence": 10,
-  "HP": 50
+  "HP": 50,
+  "level": 3,
+  "coordinates": {
+    "x": 4,
+    "y": 5
+  }
 }

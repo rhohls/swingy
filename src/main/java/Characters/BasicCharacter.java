@@ -1,8 +1,13 @@
 package Characters;
 
+import Game.CoOrdinates;
 import Items.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 
+@Getter
 public class BasicCharacter {
 
     String name;
@@ -10,6 +15,7 @@ public class BasicCharacter {
     int attack;
     int defence;
     int HP;
+    @Setter CoOrdinates coordinates;
 
 //    int modAttack;
 //    int modDefence;
@@ -23,6 +29,7 @@ public class BasicCharacter {
         this.attack = attack;
         this.defence = defence;
         this.HP = HP;
+        this.coordinates = new CoOrdinates(0,0);
     }
 
 
@@ -46,6 +53,16 @@ public class BasicCharacter {
 //        }
 //    }
 
-
-
+    void moveUp(){
+        coordinates.setY(coordinates.getY() + 1);
+    }
+    void moveDown(){
+        coordinates.setY(coordinates.getY() - 1);
+    }
+    void moveLeft(){
+        coordinates.setX(coordinates.getX() - 1);
+    }
+    void moveRight(){
+        coordinates.setX(coordinates.getX() + 1);
+    }
 }
