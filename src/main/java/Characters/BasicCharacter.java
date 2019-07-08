@@ -14,7 +14,7 @@ public class BasicCharacter {
     int maxHP;
     int attack;
     int defence;
-    int HP;
+    public int HP;
     @Setter public CoOrdinates coordinates;
 
 //    int modAttack;

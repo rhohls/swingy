@@ -21,16 +21,37 @@ public class Main {
         FileMainpulation fm = new FileMainpulation();
         ConsoleEngine disp = new ConsoleEngine();
 
-        Hero hero = fm.createFromFile("new_test.json");
-        Map map = new Map(hero.getLevel());
-        hero.coordinates.setMax(map.getSize());
+        String heroFileName;
+        try {
+            File[] list = fm.getFiles();
+            heroFileName = disp.heroFileName(list);
+        }
+        catch (Exception e){
+            System.out.println("Error getting folders");
+            return;
+        }
+
+        Game game = new Game(disp);
+        int gameReturn = 0;
 
 
+        while(true){
+            //choose hero
+            Hero hero = fm.createFromFile(heroFileName);
+            //create map
+            Map map = new Map(hero.getLevel());
+            hero.coordinates.setMax(map.getSize());
 
-        Game game = new Game(map, hero, disp);
+            game.setMap(map);
+            game.setHero(hero);
 
+            gameReturn = game.Loop();
 
-        game.Loop();
+            switch (gameReturn){
+                case 0:
+                    break;
+            }
+        }
 
     }
 

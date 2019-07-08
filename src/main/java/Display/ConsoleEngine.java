@@ -4,14 +4,33 @@ import Characters.Enemy;
 import Characters.Hero;
 import Game.Map;
 
+import java.io.File;
 import java.util.Scanner;
 
-public class ConsoleEngine implements Display{
+public class ConsoleEngine {
 
     Scanner scanner = new Scanner(System.in);
 
+    public String heroFileName(File[] listFiles){
 
-    @Override
+
+        //todo add hero preview
+        System.out.println("List of heroes:");
+
+        for (int i=0; i < listFiles.length; i++){
+            System.out.println(i + ". " + listFiles[i].getName());
+        }
+
+        int input = -1;
+        while (input < 0 || input > listFiles.length){
+            System.out.println("Enter a number of Hero that you want");
+            input = scanner.nextInt();
+        }
+
+        return (listFiles[input].getName());
+    }
+
+
     public void display(Hero hero, Map map){
         clear();
 
@@ -88,11 +107,19 @@ public class ConsoleEngine implements Display{
         System.out.println("You failed at running away");
     }
 
-    public void cont(){
-        System.out.println("Press enter to continue");
-        String inputString = scanner.nextLine();
-
+    public void beatMap(){
+        System.out.println("you beat the map");
     }
+
+    public void takeDamage(int damage) {
+        System.out.println("You took " + damage + " points of damage.");
+    }
+
+    public void heroDead() {
+        System.out.println("You died :(");
+    }
+
+
 
 
 
@@ -108,4 +135,9 @@ public class ConsoleEngine implements Display{
         System.out.flush();
     }
 
+    public void cont(){
+        System.out.println("Press enter to continue");
+        String inputString = scanner.nextLine();
+
+    }
 }

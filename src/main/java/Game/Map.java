@@ -28,7 +28,7 @@ public class Map {
                         rand.nextInt(size), rand.nextInt(size));
             }
             enemiesLocations.add(newCoords);
-            System.out.println("Enemy at: x-" + newCoords.getX() + " y-" + newCoords.getY());
+//            System.out.println("Enemy at: x-" + newCoords.getX() + " y-" + newCoords.getY());
         }
     }
 

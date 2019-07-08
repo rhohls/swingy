@@ -4,9 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 import java.util.Scanner;
 
 public class FileMainpulation {
@@ -50,5 +48,21 @@ public class FileMainpulation {
         return (newHero);
     }
 
+
+    public File[] getFiles(){
+        File dir = new File("Heros");
+
+        File [] files = dir.listFiles(new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+//                System.out.println("Found " + name);
+                if (name.endsWith(".json")){
+                    return true;
+                }
+                return false;
+            }
+        });
+        return files;
+    }
 
 }
