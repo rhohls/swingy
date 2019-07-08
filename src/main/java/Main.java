@@ -21,10 +21,9 @@ public class Main {
         FileMainpulation fm = new FileMainpulation();
         ConsoleEngine disp = new ConsoleEngine();
 
-        String heroFileName;
+        File[] fileList;
         try {
-            File[] list = fm.getFiles();
-            heroFileName = disp.heroFileName(list);
+            fileList = fm.getFiles();
         }
         catch (Exception e){
             System.out.println("Error getting folders");
@@ -33,24 +32,35 @@ public class Main {
 
         Game game = new Game(disp);
         int gameReturn = 0;
+        Hero hero = null;
+        Map map = null;
+        /*
+        1. Exit game
+        2. New hero
+        3. map beaten
 
+         */
 
         while(true){
+
             //choose hero
-            Hero hero = fm.createFromFile(heroFileName);
+            if (hero == null || gameReturn == 2) {
+                String heroFileName = disp.heroFileName(fileList);
+                hero = fm.createFromFile(heroFileName);
+            }
+
             //create map
-            Map map = new Map(hero.getLevel());
+            map = new Map(hero.getLevel());
             hero.coordinates.setMax(map.getSize());
 
             game.setMap(map);
             game.setHero(hero);
 
             gameReturn = game.Loop();
-
-            switch (gameReturn){
-                case 0:
-                    break;
+            if (gameReturn == 3){
+                //todo save hero to file
             }
+
         }
 
     }

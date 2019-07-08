@@ -82,7 +82,7 @@ public class Game {
     }
 
     private void fight() {
-        if (runAway())        {
+        if (runAway()){
             return;
         }
 
@@ -93,6 +93,8 @@ public class Game {
         display.takeDamage(damage);
         hero.HP -= damage;
 
+        if(hero.addExperience())
+            display.levelUp();
 
     }
 

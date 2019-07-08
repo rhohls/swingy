@@ -10,6 +10,7 @@ public class Hero extends BasicCharacter{
 
     ArrayList<Item> itemList;
     int level;
+    int experience;
 
     public Hero(String name, int HP, int attack, int defence, int maxHP, int level) {
         super(name, maxHP, attack, defence, HP);
@@ -31,4 +32,19 @@ public class Hero extends BasicCharacter{
     }
 
 
+    public boolean addExperience(){
+        //todo
+        experience += 10;
+
+        if (levelUp()){
+            level += 1;
+            return true;
+        }
+        return false;
+    }
+
+    private boolean levelUp(){
+        int levelUpAmount = level*1000 + ((level - 1) * (level - 1) * 450);
+        return (experience >= levelUpAmount);
+    }
 }

@@ -119,7 +119,9 @@ public class ConsoleEngine {
         System.out.println("You died :(");
     }
 
-
+    public void levelUp() {
+        System.out.println("You leveled up, nice.");
+    }
 
 
 
@@ -140,4 +142,6 @@ public class ConsoleEngine {
         String inputString = scanner.nextLine();
 
     }
+
+
 }
