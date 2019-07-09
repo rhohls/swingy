@@ -12,8 +12,6 @@ public class ConsoleEngine {
     Scanner scanner = new Scanner(System.in);
 
     public String heroFileName(File[] listFiles){
-
-
         //todo add hero preview
         System.out.println("List of heroes:");
 
@@ -30,6 +28,25 @@ public class ConsoleEngine {
         return (listFiles[input].getName());
     }
 
+    public int mainMenu(Hero hero){
+            System.out.println("Main menu:");
+            System.out.println("Current hero selected: " + hero.getName());
+        while(true){
+            System.out.println("1. Select new hero");
+            System.out.println("2. Exit");
+
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+
+                case 1:
+                    return (2);
+
+                case 2:
+                    return (3);
+            }
+        }
+    }
 
     public void display(Hero hero, Map map){
         clear();
@@ -45,7 +62,6 @@ public class ConsoleEngine {
     }
 
     public String inputDirection(){
-
         while(true){
             System.out.println("Enter a direction: North, East, South, West Or Exit");
             String inputString = scanner.nextLine();
@@ -144,4 +160,7 @@ public class ConsoleEngine {
     }
 
 
+    public void goodbye() {
+        System.out.println("Goodbye!");
+    }
 }

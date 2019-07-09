@@ -16,7 +16,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Main pls = new Main();
 
         FileMainpulation fm = new FileMainpulation();
         ConsoleEngine disp = new ConsoleEngine();
@@ -38,10 +37,11 @@ public class Main {
         1. Exit game
         2. New hero
         3. map beaten
-
+        4. Play game
          */
 
         while(true){
+
 
             //choose hero
             if (hero == null || gameReturn == 2) {
@@ -56,12 +56,17 @@ public class Main {
             game.setMap(map);
             game.setHero(hero);
 
-            gameReturn = game.Loop();
+            if (gameReturn != 3)
+                gameReturn = game.Loop();
+
             if (gameReturn == 3){
                 //todo save hero to file
+                break;
             }
 
         }
+
+        disp.goodbye();
 
     }
 
