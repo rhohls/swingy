@@ -1,15 +1,9 @@
 import Characters.Hero;
 import Display.ConsoleEngine;
-import Game.CoOrdinates;
 import Game.Game;
 import Game.Map;
-import Items.Weapon;
-import com.google.gson.Gson;
 
-import java.awt.*;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 
 public class Main {
@@ -17,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        FileMainpulation fm = new FileMainpulation();
+        FileManipulation fm = new FileManipulation();
         ConsoleEngine disp = new ConsoleEngine();
 
         File[] fileList;
@@ -42,32 +36,45 @@ public class Main {
 
         while(true){
 
+            gameReturn = disp.mainMenu(hero);
 
             //choose hero
-            if (hero == null || gameReturn == 2) {
+            if (gameReturn == 2) {
                 String heroFileName = disp.heroFileName(fileList);
-                hero = fm.createFromFile(heroFileName);
+                try {
+                    hero = fm.createFromFile(heroFileName);
+                }
+                catch (Exception e) {
+                    disp.except(e);
+                }
             }
 
-            //create map
-            map = new Map(hero.getLevel());
-            hero.coordinates.setMax(map.getSize());
+            if (gameReturn == 4 && hero != null) {
+                //create map
+                map = new Map(hero.getLevel());
+                hero.coordinates.setMax(map.getSize());
 
-            game.setMap(map);
-            game.setHero(hero);
+                game.setMap(map);
+                game.setHero(hero);
 
-            if (gameReturn != 3)
                 gameReturn = game.Loop();
+            }
 
+            //save file
             if (gameReturn == 3){
-                //todo save hero to file
+                if (hero != null){
+                    try {
+                        fm.writeHeroToFile(hero, hero.getName());
+                    }
+                    catch (Exception e) {
+                        disp.except(e);
+                    }
+                }
                 break;
             }
-
         }
 
         disp.goodbye();
-
     }
 
 
@@ -75,7 +82,7 @@ public class Main {
 
 
 //    //file test
-//    FileMainpulation fm = new FileMainpulation();
+//    FileManipulation fm = new FileManipulation();
 //
 //    Hero hero = fm.createFromFile("test_file.json");
 //        if (hero == null)

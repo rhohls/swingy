@@ -11,16 +11,24 @@ public class ConsoleEngine {
 
     Scanner scanner = new Scanner(System.in);
 
+
+    public void except(Exception e){
+        e.printStackTrace();
+    }
+
     public String heroFileName(File[] listFiles){
         //todo add hero preview
-        System.out.println("List of heroes:");
-
-        for (int i=0; i < listFiles.length; i++){
-            System.out.println(i + ". " + listFiles[i].getName());
-        }
 
         int input = -1;
         while (input < 0 || input > listFiles.length){
+            clear();
+            System.out.println("List of heroes:");
+
+            for (int i=0; i < listFiles.length; i++){
+                String str = listFiles[i].getName();
+                System.out.println(i + ". " + str.substring(0, str.length() - 5));
+            }
+
             System.out.println("Enter a number of Hero that you want");
             input = scanner.nextInt();
         }
@@ -28,21 +36,41 @@ public class ConsoleEngine {
         return (listFiles[input].getName());
     }
 
+    /*
+    1. Exit game
+    2. New hero
+    3. map beaten
+    4. Play game
+    */
     public int mainMenu(Hero hero){
-            System.out.println("Main menu:");
-            System.out.println("Current hero selected: " + hero.getName());
         while(true){
-            System.out.println("1. Select new hero");
-            System.out.println("2. Exit");
+            clear();
+            System.out.println("Main menu:");
 
-            int choice = scanner.nextInt();
+            if (hero != null)
+                System.out.println("Current hero selected: " + hero.getName());
+            else
+                System.out.println("No hero selected");
+
+            System.out.println("1. Select new hero");
+            System.out.println("2. Play Game");
+            System.out.println("3. Exit");
+
+            //int parsing
+            int choice = -1;
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            }
+            catch (Exception e){}
+            //
 
             switch (choice) {
 
                 case 1:
                     return (2);
-
                 case 2:
+                    return (4);
+                case 3:
                     return (3);
             }
         }

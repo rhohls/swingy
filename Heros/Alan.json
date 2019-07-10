@@ -9,14 +9,16 @@
       "value": 4
     }
   ],
-  "name": "Steve",
+  "level": 3,
+  "experience": 0,
+  "name": "Alan",
   "maxHP": 32,
   "attack": 53,
   "defence": 10,
   "HP": 10,
-  "level": 3,
   "coordinates": {
     "x": 4,
-    "y": 5
+    "y": 5,
+    "max": 0
   }
 }

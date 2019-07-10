@@ -5,12 +5,14 @@ import Items.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 
 @Getter
 public class BasicCharacter {
 
-    String name;
+
+    @NotNull String name;
     int maxHP;
     int attack;
     int defence;

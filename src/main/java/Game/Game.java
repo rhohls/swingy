@@ -96,6 +96,8 @@ public class Game {
         if(hero.addExperience())
             display.levelUp();
 
+        //todo drop item
+
     }
 
 
