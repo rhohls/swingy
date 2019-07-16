@@ -4,15 +4,13 @@ import Game.CoOrdinates;
 import Items.*;
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
+import lombok.NonNull;
 
 @Getter
 public class BasicCharacter {
 
 
-    @NotNull String name;
+    @NonNull String name;
     int maxHP;
     int attack;
     int defence;

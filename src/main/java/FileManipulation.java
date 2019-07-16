@@ -4,10 +4,10 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
+//import javax.validation.ConstraintViolation;
+//import javax.validation.Validation;
+//import javax.validation.Validator;
+//import javax.validation.ValidatorFactory;
 import java.io.*;
 import java.util.Scanner;
 import java.util.Set;
@@ -60,12 +60,12 @@ public class FileManipulation {
 
 
 
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        Validator validator = factory.getValidator();
-        Set<ConstraintViolation<Hero>> violations = validator.validate(newHero);
-
-        if(violations.size() < 0)
-            throw new Exception("Hero could not be created. Error with file: " + fileName );
+//        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+//        Validator validator = factory.getValidator();
+//        Set<ConstraintViolation<Hero>> violations = validator.validate(newHero);
+//
+//        if(violations.size() < 0)
+//            throw new Exception("Hero could not be created. Error with file: " + fileName );
 
 
         return (newHero);

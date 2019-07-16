@@ -1,3 +1,24 @@
 {
-
+  "itemList": [
+    {
+      "name": "spear",
+      "value": 4
+    },
+    {
+      "name": "spear",
+      "value": 4
+    }
+  ],
+  "level": 3,
+  "experience": 0,
+  "name": "Steve",
+  "maxHP": 32,
+  "attack": 53,
+  "defence": 10,
+  "HP": 10,
+  "coordinates": {
+    "x": 4,
+    "y": 5,
+    "max": 0
+  }
 }
