@@ -35,7 +35,7 @@ public class CoOrdinates {
         }
     }
 
-    //Allow above/below max for game win condition
+    //Allow above/below max for GameSwingUI win condition
 //    public void setX(int newX){
 //        x = newX;
 //

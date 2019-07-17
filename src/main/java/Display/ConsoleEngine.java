@@ -37,15 +37,15 @@ public class ConsoleEngine {
     }
 
     /*
-    1. Exit game
+    1. Exit GameSwingUI
     2. New hero
     3. map beaten
-    4. Play game
+    4. Play GameSwingUI
     */
     public int mainMenu(Hero hero){
         while(true){
             clear();
-            System.out.println("Main menu:");
+            System.out.println("Main MenuSwingUI:");
 
             if (hero != null)
                 System.out.println("Current hero selected: " + hero.getName());
