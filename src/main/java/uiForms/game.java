@@ -1,7 +1,10 @@
 package uiForms;
 
+import lombok.Getter;
+
 import javax.swing.*;
 
+@Getter
 public class game {
     private JButton south;
     private JButton west;
@@ -10,4 +13,5 @@ public class game {
     private JTextArea textArea1;
     private JButton fight;
     private JButton run;
+    private JPanel panel;
 }
