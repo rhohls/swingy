@@ -1,13 +1,13 @@
 package uiForms;
 
 import Characters.Hero;
+import Display.GUIController;
 import Game.Controller;
 import lombok.Getter;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 
 @Getter
 public class MenuSwingUI {
@@ -21,9 +21,7 @@ public class MenuSwingUI {
 
 
     public MenuSwingUI(){
-        this.controller = new Controller();
-
-
+        this.controller = GUIController.getInstance().getController();
 
         //hero selection
         viewHeroBtn.addActionListener(new ActionListener() {
@@ -39,8 +37,9 @@ public class MenuSwingUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    controller.setHero(heroSelectCombo.getSelectedItem().toString());
+                    GUIController.getInstance().startGame(heroSelectCombo.getSelectedItem().toString());
                 } catch (Exception e1) {
+                    e1.printStackTrace();
                     heroDisplay.setText("There was an error starting the game");
                 }
             }

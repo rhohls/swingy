@@ -1,5 +1,6 @@
 import Characters.Hero;
 import Display.ConsoleEngine;
+import Display.GUIController;
 import Game.Game;
 import Game.Map;
 
@@ -27,6 +28,18 @@ public class Main {
             return;
         }
 
+
+        GUIController guiController = GUIController.getInstance();
+        guiController.init(fileList);
+
+        guiController.openMainMenu();
+
+//        JFrame frame = new JFrame();
+//        GameSwingUI gameSwingUI = new GameSwingUI();
+//
+//        frame.setContentPane(gameSwingUI.getPanel());
+////        frame.pack();
+//        frame.setVisible(true);
 
 
 
