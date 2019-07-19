@@ -2,9 +2,11 @@ package Game;
 
 import Characters.Enemy;
 import Characters.Hero;
-import Display.Display;
+import Display.*;
 import Helper.FileManipulation;
 import lombok.Getter;
+
+import java.util.Random;
 
 public class Controller {
 
@@ -14,7 +16,9 @@ public class Controller {
     @Getter
     private Map map;
 
-    private Display display;
+//    private Display display;
+    private ConsoleEngine display;
+    Random random = new Random();
 
 
     public void setHero(String heroFileName) throws Exception{
@@ -34,7 +38,13 @@ public class Controller {
         }
     }
 
-    public void move(String direction){
+
+    /*
+    0. Normal move
+    1. Fight
+    2. Game end / beat map
+     */
+    public int move(String direction){
         switch (direction){
             case "north":
                 hero.moveUp();
@@ -53,24 +63,17 @@ public class Controller {
                 break;
         }
 
-
         //fight?
         if (map.occupied(hero.getCoordinates())){
-            fight();
-
-            if (hero.HP <= 0){
-                display.heroDead();
-                break loop;
-            }
-
-            display.cont();
+            return 1;
         }
 
         //edge of map
         if (hero.coordinates.outOfBounds()){
-            display.beatMap();
-            break loop;
+            return 2;
         }
+
+        return 0;
     }
 
 
@@ -95,15 +98,17 @@ public class Controller {
     }
 
 
-    private boolean runAway(){
-        if (!display.startFight()){
-            if (random.nextBoolean()){
-                display.fightRunSuccess();
-                return true;
-            }
-            display.fightRunFail();
-        }
-        return false;
+    public boolean runAway(){
+        return (random.nextBoolean());
+
+//        if (!display.startFight()){
+//            if (random.nextBoolean()){
+//                display.fightRunSuccess();
+//                return true;
+//            }
+//            display.fightRunFail();
+//        }
+//        return false;
     }
 
 

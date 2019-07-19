@@ -57,4 +57,35 @@ public class GUIController {
         frame.setVisible(true);
     }
 
+
+
+
+    /*
+    0. Normal move
+    1. Fight
+    2. Game end
+    */
+
+    public void move(String direction){
+        switch (controller.move(direction)){
+            case 0:
+                gameSwingUI.updateDisplay();
+                break;
+            case 1:
+                gameSwingUI.displayFight();
+                break;
+            case 2:
+                break;
+        }
+    }
+
+    private void runAway() {
+        if(controller.runAway()){
+            
+        }
+    }
+
+
+
+
 }

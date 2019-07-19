@@ -28,6 +28,11 @@ public class Main {
             return;
         }
 
+        if (args.length != 1 ) {
+            System.out.println("Usage:");
+            System.out.println("console - for console display");
+            System.out.println("gui - swing library");
+        }
 
         GUIController guiController = GUIController.getInstance();
         guiController.init(fileList);
@@ -112,8 +117,7 @@ public class Main {
 //
 //            if (gameReturn == 4 && hero != null) {
 //                //create map
-//                map = new Map(hero.getLevel());
-//                hero.coordinates.setMax(map.getSize());
+
 //
 //                game.setMap(map);
 //                game.setHero(hero);

@@ -37,7 +37,7 @@ public class FileManipulation {
         Gson gson = new GsonBuilder().create();
         String json = "";
         Hero newHero;
-        System.out.println("-----" + fileName);
+//        System.out.println("-----" + fileName);
 //        try {
             BufferedReader reader = new BufferedReader(new FileReader("Heros/" + fileName));
 
