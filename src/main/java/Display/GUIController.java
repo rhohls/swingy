@@ -1,6 +1,7 @@
 package Display;
 
 import Game.Controller;
+import Helper.FightResult;
 import lombok.Getter;
 import uiForms.GameSwingUI;
 import uiForms.MenuSwingUI;
@@ -55,6 +56,8 @@ public class GUIController {
         frame.setContentPane(gameSwingUI.getPanel());
         frame.setSize(600,400);
         frame.setVisible(true);
+
+        gameSwingUI.updateDisplay();
     }
 
 
@@ -79,13 +82,19 @@ public class GUIController {
         }
     }
 
-    private void runAway() {
+    public void runAway() {
         if(controller.runAway()){
-            
+            gameSwingUI.runAwaySuccess();
+        }
+        else{
+            gameSwingUI.runAwayFail();
+            chooseFight();
         }
     }
 
+    public void chooseFight() {
+        FightResult result =  controller.fight();
+        gameSwingUI.fightResult(result);
 
-
-
+    }
 }

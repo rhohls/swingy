@@ -3,6 +3,7 @@ package Game;
 import Characters.Enemy;
 import Characters.Hero;
 import Display.*;
+import Helper.FightResult;
 import Helper.FileManipulation;
 import lombok.Getter;
 
@@ -78,22 +79,32 @@ public class Controller {
 
 
 
-    private void fight() {
-        if (runAway()){
-            return;
-        }
+    public FightResult fight() {
+        FightResult result = new FightResult();
+
 
         Enemy enemy = new Enemy("Enemy", 10,15,10,10);
 
         int damage = enemy.getAttack() - hero.getDefence();
 
-        display.takeDamage(damage);
-        hero.HP -= damage;
+        if (damage > 0) {
+            result.damageTaken = damage;
+            hero.HP -= damage;
+        }
+        else{
+            result.damageTaken = 0;
+        }
+
 
         if(hero.addExperience())
-            display.levelUp();
+            result.levelUp = true;
+        else
+            result.levelUp = false;
+
 
         //todo drop item
+
+        return result;
 
     }
 
