@@ -39,7 +39,6 @@ public class Controller {
         }
     }
 
-
     /*
     0. Normal move
     1. Fight
@@ -63,25 +62,19 @@ public class Controller {
                 hero.moveLeft();
                 break;
         }
-
-        //fight?
-        if (map.occupied(hero.getCoordinates())){
-            return 1;
-        }
-
         //edge of map
         if (hero.coordinates.outOfBounds()){
             return 2;
         }
-
+        //fight?
+        if (map.occupied(hero.getCoordinates())){
+            return 1;
+        }
         return 0;
     }
 
-
-
     public FightResult fight() {
         FightResult result = new FightResult();
-
 
         Enemy enemy = new Enemy("Enemy", 10,15,10,10);
 
@@ -95,34 +88,17 @@ public class Controller {
             result.damageTaken = 0;
         }
 
-
         if(hero.addExperience())
             result.levelUp = true;
         else
             result.levelUp = false;
 
-
         //todo drop item
-
         return result;
 
     }
 
-
     public boolean runAway(){
         return (random.nextBoolean());
-
-//        if (!display.startFight()){
-//            if (random.nextBoolean()){
-//                display.fightRunSuccess();
-//                return true;
-//            }
-//            display.fightRunFail();
-//        }
-//        return false;
     }
-
-
-
-
 }

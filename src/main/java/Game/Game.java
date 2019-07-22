@@ -100,7 +100,6 @@ public class Game {
 
     }
 
-
     private boolean runAway(){
         if (!display.startFight()){
             if (random.nextBoolean()){

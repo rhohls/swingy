@@ -11,7 +11,6 @@ public class ConsoleEngine {
 
     Scanner scanner = new Scanner(System.in);
 
-
     public void except(Exception e){
         e.printStackTrace();
     }

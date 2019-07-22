@@ -26,7 +26,6 @@ public class GameSwingUI {
     public GameSwingUI(){
         this.controller = GUIController.getInstance();
 
-
         southBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -87,16 +86,9 @@ public class GameSwingUI {
                                     " y-" + controller.getController().getHero().getCoordinates().getY() + "\n");
     }
 
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-    }
-
-
     public void displayFight(){
         fightBtn.setEnabled(true);
         runBtn.setEnabled(true);
-//        continueBtn.setEnabled(true);
 
         southBtn.setEnabled(false);
         westBtn.setEnabled(false);
@@ -142,5 +134,9 @@ public class GameSwingUI {
         runBtn.setEnabled(false);
 
         continueBtn.setEnabled(true);
+    }
+
+    public void displayWin() {
+        JOptionPane.showMessageDialog(null, "You won! Well done");
     }
 }

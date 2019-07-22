@@ -59,9 +59,7 @@ public class GUIController {
 
         gameSwingUI.updateDisplay();
     }
-
-
-
+    
 
     /*
     0. Normal move
@@ -78,6 +76,9 @@ public class GUIController {
                 gameSwingUI.displayFight();
                 break;
             case 2:
+                gameSwingUI.displayWin();
+//                controller.saveHero();
+                openMainMenu();
                 break;
         }
     }
