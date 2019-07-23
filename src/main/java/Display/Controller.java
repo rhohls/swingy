@@ -1,6 +1,6 @@
 package Display;
 
-import Game.Controller;
+import Game.GameState;
 import Helper.FightResult;
 import lombok.Getter;
 import uiForms.IDisplay;
@@ -9,24 +9,24 @@ import uiForms.SwingUI;
 import javax.swing.*;
 import java.io.File;
 
-public class GUIController {
+public class Controller {
 
-    private static GUIController ourInstance = new GUIController();
-    public static GUIController getInstance() {
+    private static Controller ourInstance = new Controller();
+    public static Controller getInstance() {
         return ourInstance;
     }
-    public GUIController(){}
+    public Controller(){}
 
 
     @Getter
-    private static Controller controller;
+    private static GameState gameState;
 
     private IDisplay display;
     private JFrame frame;
     private File[] fileList;
 
     public void init(File[] fileList){
-        controller = new Controller();
+        gameState = new GameState();
         this.fileList = fileList;
         display = new SwingUI();
     }
@@ -37,8 +37,8 @@ public class GUIController {
     }
 
     public void startGame(String heroName) throws Exception{
-        controller.setHero(heroName);
-        controller.initMap();
+        gameState.setHero(heroName);
+        gameState.initMap();
 
         display.startGame();
     }
@@ -51,7 +51,7 @@ public class GUIController {
     */
 
     public void move(String direction){
-        switch (controller.move(direction)){
+        switch (gameState.move(direction)){
             case 0:
                 display.updateDisplay();
                 break;
@@ -60,14 +60,14 @@ public class GUIController {
                 break;
             case 2:
                 display.displayWin();
-//                controller.saveHero();
+//                gameState.saveHero();
                 openMainMenu();
                 break;
         }
     }
 
     public void runAway() {
-        if(controller.runAway()){
+        if(gameState.runAway()){
             display.runAwaySuccess();
         }
         else{
@@ -77,7 +77,7 @@ public class GUIController {
     }
 
     public void chooseFight() {
-        FightResult result =  controller.fight();
+        FightResult result =  gameState.fight();
         display.fightResult(result);
     }
 }

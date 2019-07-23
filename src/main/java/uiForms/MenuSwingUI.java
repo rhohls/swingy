@@ -1,8 +1,8 @@
 package uiForms;
 
 import Characters.Hero;
-import Display.GUIController;
-import Game.Controller;
+import Display.Controller;
+import Game.GameState;
 import lombok.Getter;
 
 import javax.swing.*;
@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 
 @Getter
 public class MenuSwingUI {
-    private Controller controller;
+    private GameState controller;
 
     private JPanel panel1;
     private JTextArea heroDisplay;
@@ -21,7 +21,7 @@ public class MenuSwingUI {
 
 
     public MenuSwingUI(){
-        this.controller = GUIController.getInstance().getController();
+        this.controller = Controller.getInstance().getGameState();
 
         //hero selection
         viewHeroBtn.addActionListener(new ActionListener() {
@@ -37,7 +37,7 @@ public class MenuSwingUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    GUIController.getInstance().startGame(heroSelectCombo.getSelectedItem().toString());
+                    Controller.getInstance().startGame(heroSelectCombo.getSelectedItem().toString());
                 } catch (Exception e1) {
                     e1.printStackTrace();
                     heroDisplay.setText("There was an error starting the game");

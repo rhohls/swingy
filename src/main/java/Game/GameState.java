@@ -9,7 +9,7 @@ import lombok.Getter;
 
 import java.util.Random;
 
-public class Controller {
+public class GameState {
 
     private FileManipulation fm = new FileManipulation();
     @Getter

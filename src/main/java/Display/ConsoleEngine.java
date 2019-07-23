@@ -60,8 +60,9 @@ public class ConsoleEngine {
             try {
                 choice = Integer.parseInt(scanner.nextLine());
             }
-            catch (Exception e){}
-            //
+            catch (Exception e){
+                //ignore non numbers
+            }
 
             switch (choice) {
 

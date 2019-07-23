@@ -1,15 +1,9 @@
-import Characters.Hero;
 import Display.ConsoleEngine;
-import Display.GUIController;
-import Game.Game;
-import Game.Map;
+import Display.Controller;
 
-import javax.swing.*;
 import java.io.*;
 
 import Helper.FileManipulation;
-import uiForms.MenuSwingUI;
-import uiForms.GameSwingUI;
 
 public class Main {
 
@@ -34,7 +28,7 @@ public class Main {
             System.out.println("gui - swing library");
         }
 
-        GUIController guiController = GUIController.getInstance();
+        Controller guiController = Controller.getInstance();
         guiController.init(fileList);
 
         guiController.openMainMenu();

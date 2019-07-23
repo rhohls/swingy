@@ -1,7 +1,6 @@
 package uiForms;
 
-import Display.GUIController;
-import Game.Controller;
+import Display.Controller;
 import Helper.FightResult;
 import lombok.Getter;
 
@@ -11,7 +10,7 @@ import java.awt.event.ActionListener;
 
 @Getter
 public class GameSwingUI {
-    private GUIController controller;
+    private Controller controller;
 
     private JButton southBtn;
     private JButton westBtn;
@@ -24,7 +23,7 @@ public class GameSwingUI {
     private JButton continueBtn;
 
     public GameSwingUI(){
-        this.controller = GUIController.getInstance();
+        this.controller = Controller.getInstance();
 
         southBtn.addActionListener(new ActionListener() {
             @Override
@@ -75,15 +74,15 @@ public class GameSwingUI {
     public void updateDisplay(){
         infoAreaTxt.setText(null);
 
-        infoAreaTxt.append("Name: " + controller.getController().getHero().getName() + "\n");
+        infoAreaTxt.append("Name: " + controller.getGameState().getHero().getName() + "\n");
         infoAreaTxt.append("" + "\n");
-        infoAreaTxt.append("HP: " + controller.getController().getHero().getHP() + "\n");
-        infoAreaTxt.append("Attack: " + controller.getController().getHero().getAttack() + "\n");
-        infoAreaTxt.append("Defense: " + controller.getController().getHero().getDefence() + "\n");
-        infoAreaTxt.append("Map size: "+ controller.getController().getMap().getSize()
-                                    + "x" + controller.getController().getMap().getSize() + "\n");
-        infoAreaTxt.append("Position: x-" + controller.getController().getHero().getCoordinates().getX() +
-                                    " y-" + controller.getController().getHero().getCoordinates().getY() + "\n");
+        infoAreaTxt.append("HP: " + controller.getGameState().getHero().getHP() + "\n");
+        infoAreaTxt.append("Attack: " + controller.getGameState().getHero().getAttack() + "\n");
+        infoAreaTxt.append("Defense: " + controller.getGameState().getHero().getDefence() + "\n");
+        infoAreaTxt.append("Map size: "+ controller.getGameState().getMap().getSize()
+                                    + "x" + controller.getGameState().getMap().getSize() + "\n");
+        infoAreaTxt.append("Position: x-" + controller.getGameState().getHero().getCoordinates().getX() +
+                                    " y-" + controller.getGameState().getHero().getCoordinates().getY() + "\n");
     }
 
     public void displayFight(){
