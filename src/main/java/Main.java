@@ -1,13 +1,19 @@
 import Display.ConsoleEngine;
+import Display.ConsoleUI;
 import Display.Controller;
 
 import java.io.*;
 
 import Helper.FileManipulation;
+import uiForms.IDisplay;
+import uiForms.SwingUI;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        System.out.println("arg number " + args.length);
+        System.out.println("arg 0 " + args[0]);
 
 
         FileManipulation fm = new FileManipulation();
@@ -26,113 +32,32 @@ public class Main {
             System.out.println("Usage:");
             System.out.println("console - for console display");
             System.out.println("gui - swing library");
+            return;
         }
 
-        Controller guiController = Controller.getInstance();
-        guiController.init(fileList);
+        IDisplay UI;
+        System.out.println("lower " + args[0].toLowerCase());
+        System.out.println("gui?? " + args[0].toLowerCase().equals("gui"));
 
-        guiController.openMainMenu();
-
-//        JFrame frame = new JFrame();
-//        GameSwingUI gameSwingUI = new GameSwingUI();
-//
-//        frame.setContentPane(gameSwingUI.getPanel());
-////        frame.pack();
-//        frame.setVisible(true);
+        Controller controller = Controller.getInstance();
 
 
+        if (args[0].toLowerCase().equals("console"))
+            UI = new ConsoleUI();
+        else if (args[0].toLowerCase().equals("gui"))
+            UI = new SwingUI();
+        else{
+            System.out.println("Usage:");
+            System.out.println("console - for console display");
+            System.out.println("gui - swing library");
+            return;
+        }
 
-//        Hero testHero;
-//        try {
-//            testHero = fm.createFromFile("Steve.json");
-//            menuWindow.displayInfo(testHero);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//
-//        System.out.println(menuWindow.getHeroSelectCombo().getSelectedItem().toString());
-//
-//        try
-//        {
-//            Thread.sleep(5000);
-//        }
-//        catch(InterruptedException ex)
-//        {
-//            Thread.currentThread().interrupt();
-//        }
-//        System.out.println(menuWindow.getHeroSelectCombo().getSelectedItem().toString());
-//
-//        GameSwingUI gameWindow = new GameSwingUI();
-//
-//        frame.setVisible(false);
-////        frame.setContentPane(gameWindow.getPanel());
-////        frame.setVisible(true);
+//        Controller controller = Controller.getInstance();
+        controller.init(fileList, UI);
+
+        controller.openMainMenu();
 
 
-
-
-
-//        Game game = new Game(disp);
-//        int gameReturn = 0;
-//        Hero hero = null;
-//        Map map = null;
-//        /*
-//        1. Exit GameSwingUI
-//        2. New hero
-//        3. map beaten
-//        4. Play GameSwingUI
-//         */
-//        try {
-//
-//            String getname = menuWindow.getHeroSelectCombo().getSelectedItem().toString();
-//            System.out.println("name: " + getname );
-//            hero = fm.createFromFile(getname);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//        while(true){
-//
-//            gameReturn = disp.mainMenu(hero);
-//
-//            //choose hero
-//            if (gameReturn == 2) {
-//                String heroFileName = disp.heroFileName(fileList);
-//                try {
-//                    hero = fm.createFromFile(heroFileName);
-//                }
-//                catch (Exception e) {
-//                    disp.except(e);
-//                }
-//            }
-//
-//
-//
-//            if (gameReturn == 4 && hero != null) {
-//                //create map
-
-//
-//                game.setMap(map);
-//                game.setHero(hero);
-//
-//                gameReturn = game.Loop();
-//            }
-//
-//            //save file
-//            if (gameReturn == 3){
-//                if (hero != null){
-//                    try {
-//                        fm.writeHeroToFile(hero, hero.getName());
-//                    }
-//                    catch (Exception e) {
-//                        disp.except(e);
-//                    }
-//                }
-//                break;
-//            }
-//        }
-//
-//        disp.goodbye();
     }
 }

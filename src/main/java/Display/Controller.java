@@ -19,16 +19,15 @@ public class Controller {
 
 
     @Getter
-    private static GameState gameState;
+    private static GameState gameState = new GameState();
 
     private IDisplay display;
     private JFrame frame;
     private File[] fileList;
 
-    public void init(File[] fileList){
-        gameState = new GameState();
+    public void init(File[] fileList, IDisplay display){
         this.fileList = fileList;
-        display = new SwingUI();
+        this.display = display;
     }
 
     public void openMainMenu(){

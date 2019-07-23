@@ -49,11 +49,11 @@ public class MenuSwingUI {
 
     }
 
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-        heroSelectCombo = new JComboBox();
-
-    }
+//    private void createUIComponents() {
+//        // TODO: place custom component creation code here
+//        heroSelectCombo = new JComboBox();
+//
+//    }
 
     private void displayInfo(Hero hero){
         heroDisplay.setText(null);
