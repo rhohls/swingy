@@ -65,7 +65,7 @@ public class SwingUI implements IDisplay {
 
     @Override
     public void runAwayFail() {
-        gameSwingUI.runAwaySuccess();
+        gameSwingUI.runAwayFail();
     }
 
     @Override

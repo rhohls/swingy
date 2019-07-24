@@ -1,4 +1,3 @@
-import Display.ConsoleEngine;
 import Display.ConsoleUI;
 import Display.Controller;
 

@@ -17,7 +17,6 @@ public class GameState {
     @Getter
     private Map map;
 
-    private ConsoleEngine display;
     Random random = new Random();
 
 

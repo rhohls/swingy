@@ -120,10 +120,7 @@ public class GameSwingUI {
     }
 
     public void heroDead() {
-        infoAreaTxt.setText(null);
-        infoAreaTxt.append("\n" + controller.getGameState().getHero().getName() + " is dead.");
-        infoAreaTxt.append("Sorry :(");
-        continueButtons();
+        JOptionPane.showMessageDialog(null, "You died, sorry :(");
     }
 
     private void fightContinue() {

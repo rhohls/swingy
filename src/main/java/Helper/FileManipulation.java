@@ -19,60 +19,25 @@ public class FileManipulation {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-//        System.out.println(gson.toJson(hero));
-
-//        try {
-            String json = gson.toJson(hero);
-            FileWriter writer = new FileWriter("Heros/" + fileOutputName + ".json");
-            writer.write(json);
-            writer.close();
-
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        String json = gson.toJson(hero);
+        FileWriter writer = new FileWriter("Heros/" + fileOutputName + ".json");
+        writer.write(json);
+        writer.close();
     }
 
     public Hero createFromFile(String fileName) throws Exception{
-//        Gson gson = new Gson();
         Gson gson = new GsonBuilder().create();
         String json = "";
         Hero newHero;
-//        System.out.println("-----" + fileName);
-//        try {
-            BufferedReader reader = new BufferedReader(new FileReader("Heros/" + fileName));
 
-//            String line = reader.readLine();
-//
-//            while (line != null) {
-//                json += line;
-//               line = reader.readLine();
-//            }
+        BufferedReader reader = new BufferedReader(new FileReader("Heros/" + fileName));
+        newHero = gson.fromJson(reader,  Hero.class);
 
-             newHero = gson.fromJson(reader,  Hero.class);
-//        } catch (Exception e) {
-//            System.out.println("Error reading file: " + fileName);
-//            return (null);
-//        }
         if (newHero == null)
             throw new Exception("Hero could not be created. Error with file: " + fileName );
 
-//        if (newHero.getName() == null)
-//            throw new Exception("noname could not be created. Error with file: " + fileName );
-
-
-
-
-//        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-//        Validator validator = factory.getValidator();
-//        Set<ConstraintViolation<Hero>> violations = validator.validate(newHero);
-//
-//        if(violations.size() < 0)
-//            throw new Exception("Hero could not be created. Error with file: " + fileName );
-
-
         return (newHero);
     }
-
 
     public File[] getFiles(){
         File dir = new File("Heros");
@@ -80,7 +45,6 @@ public class FileManipulation {
         File [] files = dir.listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
-//                System.out.println("Found " + name);
                 if (name.endsWith(".json")){
                     return true;
                 }
@@ -89,5 +53,4 @@ public class FileManipulation {
         });
         return files;
     }
-
 }
