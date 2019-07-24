@@ -19,8 +19,16 @@ public class Controller {
     public Controller(){}
 
 
+    public static GameState getGameState() {
+        return gameState;
+    }
+
     @Getter
     private static GameState gameState = new GameState();
+
+    public void setDisplay(IDisplay display) {
+        this.display = display;
+    }
 
     @Setter
     private IDisplay display;

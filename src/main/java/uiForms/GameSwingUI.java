@@ -5,6 +5,7 @@ import Helper.FightResult;
 import lombok.Getter;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,10 +20,11 @@ public class GameSwingUI {
     private JTextArea infoAreaTxt;
     private JButton fightBtn;
     private JButton runBtn;
+    @Getter
     private JPanel panel;
     private JButton continueBtn;
 
-    public GameSwingUI(){
+    public GameSwingUI() {
         this.controller = Controller.getInstance();
 
         southBtn.addActionListener(new ActionListener() {
@@ -69,9 +71,10 @@ public class GameSwingUI {
             }
         });
 
+        System.out.println("game constructor");
     }
 
-    public void updateDisplay(){
+    public void updateDisplay() {
         infoAreaTxt.setText(null);
 
         infoAreaTxt.append("Name: " + controller.getGameState().getHero().getName() + "\n");
@@ -79,13 +82,13 @@ public class GameSwingUI {
         infoAreaTxt.append("HP: " + controller.getGameState().getHero().getHP() + "\n");
         infoAreaTxt.append("Attack: " + controller.getGameState().getHero().getAttack() + "\n");
         infoAreaTxt.append("Defense: " + controller.getGameState().getHero().getDefence() + "\n");
-        infoAreaTxt.append("Map size: "+ controller.getGameState().getMap().getSize()
-                                    + "x" + controller.getGameState().getMap().getSize() + "\n");
+        infoAreaTxt.append("Map size: " + controller.getGameState().getMap().getSize()
+                + "x" + controller.getGameState().getMap().getSize() + "\n");
         infoAreaTxt.append("Position: x-" + controller.getGameState().getHero().getCoordinates().getX() +
-                                    " y-" + controller.getGameState().getHero().getCoordinates().getY() + "\n");
+                " y-" + controller.getGameState().getHero().getCoordinates().getY() + "\n");
     }
 
-    public void displayFight(){
+    public void displayFight() {
         fightBtn.setEnabled(true);
         runBtn.setEnabled(true);
 
@@ -116,6 +119,13 @@ public class GameSwingUI {
         continueButtons();
     }
 
+    public void heroDead() {
+        infoAreaTxt.setText(null);
+        infoAreaTxt.append("\n" + controller.getGameState().getHero().getName() + " is dead.");
+        infoAreaTxt.append("Sorry :(");
+        continueButtons();
+    }
+
     private void fightContinue() {
         fightBtn.setEnabled(false);
         runBtn.setEnabled(false);
@@ -128,7 +138,8 @@ public class GameSwingUI {
 
         updateDisplay();
     }
-    private void continueButtons(){
+
+    private void continueButtons() {
         fightBtn.setEnabled(false);
         runBtn.setEnabled(false);
 
@@ -139,9 +150,5 @@ public class GameSwingUI {
         JOptionPane.showMessageDialog(null, "You won! Well done");
     }
 
-    public void heroDead() {
-        infoAreaTxt.setText(null);
-        infoAreaTxt.append("\n" + controller.getGameState().getHero().getName() + " is dead.");
-        infoAreaTxt.append("Sorry :(");
-    }
+
 }

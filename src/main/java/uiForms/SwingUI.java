@@ -16,6 +16,8 @@ public class SwingUI implements IDisplay {
 
         frame = new JFrame("Swingy");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        System.out.println("swing constructor done");
     }
 
     @Override

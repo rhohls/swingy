@@ -38,11 +38,32 @@ public class Main {
         Controller controller = Controller.getInstance();
         controller.init(fileList);
 
+
+//        System.out.println("test:");
+//
+//        if (args[0].toLowerCase().equals("console")) {
+//            System.out.println("console");
+//        }
+//        else if (args[0].toLowerCase().equals("gui")) {
+//            System.out.println("swing");
+//        }
+//        else{
+//            System.out.println("Usage:");
+//            System.out.println("console - for console display");
+//            System.out.println("gui - swing library");
+//            return;
+//        }
+
+
         //UI
-        if (args[0].toLowerCase().equals("console"))
+        if (args[0].toLowerCase().equals("console")) {
             UI = new ConsoleUI();
-        else if (args[0].toLowerCase().equals("gui"))
+            System.out.println("made console");
+        }
+        else if (args[0].toLowerCase().equals("gui")) {
             UI = new SwingUI();
+            System.out.println("made swing");
+        }
         else{
             System.out.println("Usage:");
             System.out.println("console - for console display");

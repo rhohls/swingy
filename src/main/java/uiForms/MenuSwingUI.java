@@ -6,6 +6,7 @@ import Game.GameState;
 import lombok.Getter;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,23 +14,19 @@ import java.awt.event.ActionListener;
 public class MenuSwingUI {
     private GameState controller;
 
+    public JPanel getPanel1() {
+        return panel1;
+    }
+
     private JPanel panel1;
     private JTextArea heroDisplay;
-    @Getter
     private JComboBox heroSelectCombo;
     private JButton viewHeroBtn;
     private JButton submitBtn;
 
 
-    public MenuSwingUI(){
+    public MenuSwingUI() {
         this.controller = Controller.getInstance().getGameState();
-
-//        createUIComponents();
-    }
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-//        heroSelectCombo = new JComboBox();
 
         //hero selection
         viewHeroBtn.addActionListener(new ActionListener() {
@@ -52,20 +49,28 @@ public class MenuSwingUI {
                 }
             }
         });
+
+        System.out.println("menu Constructor");
     }
 
-    private void displayInfo(Hero hero){
+//    private void createUIComponents() {
+//        // TODO: place custom component creation code here
+//        heroSelectCombo = new JComboBox();
+//
+//    }
+
+    private void displayInfo(Hero hero) {
         heroDisplay.setText(null);
-        if (hero == null){
+        if (hero == null) {
             heroDisplay.append("There was an issue with the file");
-        }
-        else{
+        } else {
             heroDisplay.append("Name: " + hero.getName() + "\n");
             heroDisplay.append("HP: " + hero.getHP() + "\n");
             heroDisplay.append("Attack: " + hero.getAttack() + "\n");
             heroDisplay.append("Defense: " + hero.getDefence() + "\n");
         }
     }
+
 }
 
 
