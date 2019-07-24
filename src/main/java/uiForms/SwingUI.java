@@ -70,4 +70,9 @@ public class SwingUI implements IDisplay {
     public void fightResult(FightResult result) {
         gameSwingUI.fightResult(result);
     }
+
+    @Override
+    public void heroDead() {
+        gameSwingUI.heroDead();
+    }
 }

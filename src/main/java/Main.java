@@ -11,15 +11,21 @@ import uiForms.SwingUI;
 public class Main {
 
     public static void main(String[] args) {
-
-        System.out.println("arg number " + args.length);
-        System.out.println("arg 0 " + args[0]);
-
+        System.out.println("arg  " + args[0]);
 
         FileManipulation fm = new FileManipulation();
-        ConsoleEngine disp = new ConsoleEngine();
-
+        IDisplay UI;
         File[] fileList;
+
+        //Usage
+        if (args.length != 1 ) {
+            System.out.println("Usage:");
+            System.out.println("console - for console display");
+            System.out.println("gui - swing library");
+            return;
+        }
+
+        //Get hero files
         try {
             fileList = fm.getFiles();
         }
@@ -28,20 +34,11 @@ public class Main {
             return;
         }
 
-        if (args.length != 1 ) {
-            System.out.println("Usage:");
-            System.out.println("console - for console display");
-            System.out.println("gui - swing library");
-            return;
-        }
-
-        IDisplay UI;
-        System.out.println("lower " + args[0].toLowerCase());
-        System.out.println("gui?? " + args[0].toLowerCase().equals("gui"));
-
+        //init controller
         Controller controller = Controller.getInstance();
+        controller.init(fileList);
 
-
+        //UI
         if (args[0].toLowerCase().equals("console"))
             UI = new ConsoleUI();
         else if (args[0].toLowerCase().equals("gui"))
@@ -52,12 +49,9 @@ public class Main {
             System.out.println("gui - swing library");
             return;
         }
+        controller.setDisplay(UI);
 
-//        Controller controller = Controller.getInstance();
-        controller.init(fileList, UI);
-
+        //Start
         controller.openMainMenu();
-
-
     }
 }

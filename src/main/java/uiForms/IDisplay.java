@@ -20,4 +20,6 @@ public interface IDisplay {
     void runAwayFail();
 
     void fightResult(FightResult result);
+
+    void heroDead();
 }

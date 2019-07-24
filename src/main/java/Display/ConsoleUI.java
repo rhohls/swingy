@@ -7,7 +7,7 @@ import uiForms.IDisplay;
 import java.io.File;
 import java.util.Scanner;
 
-
+//FIX LOOP BEING HANDLED.   LOGIC???
 
 public class ConsoleUI  implements IDisplay {
     String heroSelected;
@@ -75,6 +75,7 @@ public class ConsoleUI  implements IDisplay {
 
                 case 1:
                     chooseHero();
+                    break;
 
                 case 2:
                     if (heroSelected != null){
@@ -84,9 +85,11 @@ public class ConsoleUI  implements IDisplay {
                             System.out.println("Error starting the game, check the hero file");
                         }
                     }
+                    break;
 
                 case 3:
                     System.exit(0);
+                    break;
             }
         }
     }
@@ -172,6 +175,7 @@ public class ConsoleUI  implements IDisplay {
 
             }
         }
+        updateDisplay();
     }
 
     @Override
@@ -183,7 +187,7 @@ public class ConsoleUI  implements IDisplay {
     @Override
     public void runAwaySuccess() {
         System.out.println("You successfully ran away");
-
+        cont();
     }
 
     @Override
@@ -199,6 +203,14 @@ public class ConsoleUI  implements IDisplay {
             System.out.println("You leveled up" + "\n");
         cont();
         // updateDisplay(); //
+    }
+
+    @Override
+    public void heroDead() {
+        clear();
+        System.out.println("\n" + controller.getGameState().getHero().getName() + " is dead.");
+        System.out.println("Sorry :(");
+        cont();
     }
 
 

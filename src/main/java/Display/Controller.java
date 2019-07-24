@@ -3,6 +3,7 @@ package Display;
 import Game.GameState;
 import Helper.FightResult;
 import lombok.Getter;
+import lombok.Setter;
 import uiForms.IDisplay;
 import uiForms.SwingUI;
 
@@ -21,18 +22,17 @@ public class Controller {
     @Getter
     private static GameState gameState = new GameState();
 
+    @Setter
     private IDisplay display;
     private JFrame frame;
     private File[] fileList;
 
-    public void init(File[] fileList, IDisplay display){
+    public void init(File[] fileList){
         this.fileList = fileList;
-        this.display = display;
     }
 
     public void openMainMenu(){
         display.openMainMenu(fileList);
-
     }
 
     public void startGame(String heroName) throws Exception{
@@ -42,7 +42,6 @@ public class Controller {
         display.startGame();
     }
     
-
     /*
     0. Normal move
     1. Fight
@@ -78,5 +77,9 @@ public class Controller {
     public void chooseFight() {
         FightResult result =  gameState.fight();
         display.fightResult(result);
+        if (gameState.getHero().getHP() <= 0) {
+            display.heroDead();
+            openMainMenu();
+        }
     }
 }

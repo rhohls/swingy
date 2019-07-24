@@ -15,6 +15,7 @@ public class MenuSwingUI {
 
     private JPanel panel1;
     private JTextArea heroDisplay;
+    @Getter
     private JComboBox heroSelectCombo;
     private JButton viewHeroBtn;
     private JButton submitBtn;
@@ -22,6 +23,13 @@ public class MenuSwingUI {
 
     public MenuSwingUI(){
         this.controller = Controller.getInstance().getGameState();
+
+//        createUIComponents();
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+//        heroSelectCombo = new JComboBox();
 
         //hero selection
         viewHeroBtn.addActionListener(new ActionListener() {
@@ -44,16 +52,7 @@ public class MenuSwingUI {
                 }
             }
         });
-
-
-
     }
-
-//    private void createUIComponents() {
-//        // TODO: place custom component creation code here
-//        heroSelectCombo = new JComboBox();
-//
-//    }
 
     private void displayInfo(Hero hero){
         heroDisplay.setText(null);
