@@ -20,7 +20,11 @@ public class GameSwingUI {
     private JTextArea infoAreaTxt;
     private JButton fightBtn;
     private JButton runBtn;
-    @Getter
+
+    public JPanel getPanel() {
+        return panel;
+    }
+
     private JPanel panel;
     private JButton continueBtn;
 
@@ -120,6 +124,7 @@ public class GameSwingUI {
     }
 
     public void heroDead() {
+        fightContinue();
         JOptionPane.showMessageDialog(null, "You died, sorry :(");
     }
 
