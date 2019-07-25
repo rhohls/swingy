@@ -77,4 +77,9 @@ public class SwingUI implements IDisplay {
     public void heroDead() {
         gameSwingUI.heroDead();
     }
+
+    @Override
+    public void failSave() {
+        gameSwingUI.failSave();
+    }
 }

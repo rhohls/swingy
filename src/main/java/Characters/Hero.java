@@ -47,4 +47,9 @@ public class Hero extends BasicCharacter{
         int levelUpAmount = level*1000 + ((level - 1) * (level - 1) * 450);
         return (experience >= levelUpAmount);
     }
+
+    public void centre() {
+        coordinates.setX(coordinates.getMax() / 2);
+        coordinates.setY(coordinates.getMax() / 2);
+    }
 }

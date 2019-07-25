@@ -201,15 +201,24 @@ public class ConsoleUI  implements IDisplay {
         System.out.println("Damage taken: " + result.damageTaken + "\n");
         if (result.levelUp)
             System.out.println("You leveled up" + "\n");
+        if (result.itemDropped != null)
+            System.out.println("You got a new item");
+
         cont();
-        // updateDisplay(); //
     }
 
     @Override
     public void heroDead() {
         clear();
-        System.out.println("\n" + controller.getGameState().getHero().getName() + " is dead.");
+        System.out.println(controller.getGameState().getHero().getName() + " is dead.");
         System.out.println("Sorry :(");
+        cont();
+    }
+
+    @Override
+    public void failSave() {
+        clear();
+        System.out.println("Error saving hero: " + controller.getGameState().getHero().getName() + " to file");
         cont();
     }
 

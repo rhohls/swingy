@@ -22,4 +22,6 @@ public interface IDisplay {
     void fightResult(FightResult result);
 
     void heroDead();
+
+    void failSave();
 }

@@ -26,6 +26,7 @@ public class GameState {
     public void initMap(){
         map = new Map(hero.getLevel());
         hero.coordinates.setMax(map.getSize());
+        hero.centre();
     }
 
     public Hero heroFileInfo(String heroFileName){
@@ -98,5 +99,14 @@ public class GameState {
 
     public boolean runAway(){
         return (random.nextBoolean());
+    }
+
+    public boolean saveHero() {
+        try {
+            fm.writeHeroToFile(hero, hero.getName());
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

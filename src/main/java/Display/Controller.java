@@ -66,7 +66,8 @@ public class Controller {
                 break;
             case 2:
                 display.displayWin();
-//                gameState.saveHero();
+                if (!gameState.saveHero())
+                    display.failSave();
                 openMainMenu();
                 break;
         }
