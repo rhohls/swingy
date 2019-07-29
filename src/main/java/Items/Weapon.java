@@ -1,7 +1,11 @@
 package Items;
 
 public class Weapon extends Item {
-    public Weapon(String name, int amount){
-        super(name, amount);
+    public Weapon(int value) {
+        super("Sword", value);
+    }
+
+    public Weapon(String name, int value) {
+        super(name, value);
     }
 }

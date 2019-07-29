@@ -19,7 +19,6 @@ public class ConsoleUI  implements IDisplay {
         controller = Controller.getInstance();
     }
 
-
     private void chooseHero(){
         //todo add hero preview
 
@@ -43,7 +42,6 @@ public class ConsoleUI  implements IDisplay {
         }
         heroSelected = heroList[input].getName();
     }
-
 
     @Override
     public void openMainMenu(File[] fileList) {
@@ -127,22 +125,18 @@ public class ConsoleUI  implements IDisplay {
 
                 case "north":
                 case "n":
-//                    System.out.println("Went North");
                     return ("north");
 
                 case "east":
                 case "e":
-//                    System.out.println("Went East");
                     return ("east");
 
                 case "south":
                 case "s":
-//                    System.out.println("Went South");
                     return ("south");
 
                 case "west":
                 case "w":
-//                    System.out.println("Went West");
                     return ("west");
 
                 case "exit":
@@ -193,7 +187,6 @@ public class ConsoleUI  implements IDisplay {
     @Override
     public void runAwayFail() {
         System.out.println("You failed at running away");
-//        cont();
     }
 
     @Override

@@ -121,6 +121,13 @@ public class GameSwingUI {
         infoAreaTxt.append("Damage taken: " + result.damageTaken + "\n");
         if (result.levelUp)
             infoAreaTxt.append("You leveled up" + "\n");
+        if (result.itemDropped != null){
+            infoAreaTxt.append("You got an item\n");
+            infoAreaTxt.append("It is a " + result.itemDropped.name);
+            infoAreaTxt.append(" with value " + result.itemDropped.value);
+
+        }
+
 
         continueButtons();
     }

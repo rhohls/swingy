@@ -5,6 +5,10 @@ import Characters.Hero;
 import Display.*;
 import Helper.FightResult;
 import Helper.FileManipulation;
+import Items.Armor;
+import Items.Helm;
+import Items.Item;
+import Items.Weapon;
 import lombok.Getter;
 
 import java.util.Random;
@@ -12,10 +16,19 @@ import java.util.Random;
 public class GameState {
 
     private FileManipulation fm = new FileManipulation();
-    @Getter
+
+    public Hero getHero() {
+        return hero;
+    }
+
+    //    @Getter
     private Hero hero;
-    @Getter
+//    @Getter
     private Map map;
+
+    public Map getMap() {
+        return map;
+    }
 
     Random random = new Random();
 
@@ -74,25 +87,43 @@ public class GameState {
 
     public FightResult fight() {
         FightResult result = new FightResult();
+        int mod = 0;
 
+        int defence = 3 * hero.getLevel();
         Enemy enemy = new Enemy("Enemy", 10,15,10,10);
 
-        int damage = enemy.getAttack() - hero.getDefence();
+        int damage = 5;
 
-        if (damage > 0) {
-            result.damageTaken = damage;
+        while(true) {
+            int roll = random.nextInt(100);
+            roll += mod;
+
+            if ((hero.getAttack() + roll) > enemy.getDefence()) {
+                //success
+                break;
+            }
+
+            result.damageTaken += damage;
             hero.HP -= damage;
-        }
-        else{
-            result.damageTaken = 0;
+
+            mod += 25;
         }
 
-        if(hero.addExperience())
+
+
+
+
+
+        //always add exp? what about when dead
+        if(hero.addExperience(10))
             result.levelUp = true;
         else
             result.levelUp = false;
 
-        //todo drop item
+        //item drop
+        if (random.nextBoolean()){
+            result.itemDropped = randomItem();
+        }
         return result;
 
     }
@@ -108,5 +139,20 @@ public class GameState {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    private Item randomItem() {
+        int value = 5;
+        int rand = random.nextInt(3);
+        System.out.println("rand val: " + rand);
+        switch (rand) {
+            case 0:
+                return new Armor(value);
+            case 1:
+                return new Helm(value);
+            case 2:
+                return new Weapon(value);
+        }
+        return null;
     }
 }

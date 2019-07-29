@@ -1,10 +1,10 @@
 package Items;
 
 public class Item {
-    String name;
-    int value;
+    public String name;
+    public int value;
 
-    Item(){}
+//    Item(){}
 
     Item(String name, int value){
         this.name = name;

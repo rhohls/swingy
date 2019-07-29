@@ -10,15 +10,15 @@
     }
   ],
   "level": 3,
-  "experience": 10,
+  "experience": 80,
   "name": "Steve",
   "maxHP": 32,
   "attack": 53,
-  "defence": 10,
-  "HP": 5,
+  "defence": 101,
+  "HP": 15,
   "coordinates": {
-    "x": 0,
-    "y": 1,
+    "x": 1,
+    "y": 19,
     "max": 19
   }
 }
