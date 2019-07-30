@@ -1,0 +1,20 @@
+{
+  "itemList": [
+    {
+      "name": "Visor",
+      "value": 5
+    }
+  ],
+  "level": 1,
+  "experience": 200,
+  "name": "John",
+  "maxHP": 10,
+  "attack": 10,
+  "defence": 10,
+  "HP": 15,
+  "coordinates": {
+    "x": 0,
+    "y": 4,
+    "max": 9
+  }
+}

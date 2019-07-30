@@ -32,8 +32,11 @@ public class GameState {
 
     Random random = new Random();
 
+    public void setHero(Hero hero){
+        this.hero = hero;
+    }
 
-    public void setHero(String heroFileName) throws Exception{
+    public void setHeroFromFile(String heroFileName) throws Exception{
         hero = fm.createFromFile(heroFileName);
     }
     public void initMap(){
@@ -89,10 +92,8 @@ public class GameState {
         FightResult result = new FightResult();
         int mod = 0;
 
-        int defence = 3 * hero.getLevel();
-        Enemy enemy = new Enemy("Enemy", 10,15,10,10);
-
-        int damage = 5;
+        Enemy enemy = createEnemy(hero.getLevel());
+        int damage = 3;
 
         while(true) {
             int roll = random.nextInt(100);
@@ -106,7 +107,7 @@ public class GameState {
             result.damageTaken += damage;
             hero.HP -= damage;
 
-            mod += 25;
+            mod += 33;
         }
 
 
@@ -115,17 +116,17 @@ public class GameState {
 
 
         //always add exp? what about when dead
-        if(hero.addExperience(10))
+        if(hero.addExperience(enemy.experience))
             result.levelUp = true;
         else
             result.levelUp = false;
 
         //item drop
         if (random.nextBoolean()){
-            result.itemDropped = randomItem();
+            result.itemDropped = randomItem(hero.getLevel());
+            hero.addItems(result.itemDropped);
         }
         return result;
-
     }
 
     public boolean runAway(){
@@ -141,10 +142,10 @@ public class GameState {
         }
     }
 
-    private Item randomItem() {
-        int value = 5;
+    private Item randomItem(int heroLevel) {
+        int value = heroLevel * 2 + 3;
+
         int rand = random.nextInt(3);
-        System.out.println("rand val: " + rand);
         switch (rand) {
             case 0:
                 return new Armor(value);
@@ -154,5 +155,13 @@ public class GameState {
                 return new Weapon(value);
         }
         return null;
+    }
+
+    private Enemy createEnemy(int heroLevel){
+
+        int experience = heroLevel * 200 + ((heroLevel - 1) * 100);
+        int defence = heroLevel * 3;
+        Enemy enemy = new Enemy("Enemy", 10,15, defence,10, experience);
+        return enemy;
     }
 }

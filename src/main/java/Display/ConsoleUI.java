@@ -58,38 +58,55 @@ public class ConsoleUI  implements IDisplay {
 
             System.out.println("1. Select new hero");
             System.out.println("2. Play Game");
-            System.out.println("3. Exit");
+            System.out.println("3. Create new hero and start");
+            System.out.println("4. Exit");
 
             //int parsing
             int choice = -1;
             try {
                 choice = Integer.parseInt(scanner.nextLine());
+
+                switch (choice) {
+
+                    case 1:
+                        chooseHero();
+                        break;
+
+                    case 2:
+                        if (heroSelected != null){
+                            try {
+                                controller.startGame(heroSelected);
+                            } catch (Exception e) {
+                                System.out.println("Error starting the game, check the hero file");
+                            }
+                        }
+                        break;
+
+                    case 3:
+                        newHero();
+                        break;
+
+                    case 4:
+                        System.exit(0);
+                        break;
+                }
+
             }
             catch (Exception e){
                 //ignore non numbers
             }
 
-            switch (choice) {
 
-                case 1:
-                    chooseHero();
-                    break;
-
-                case 2:
-                    if (heroSelected != null){
-                        try {
-                            controller.startGame(heroSelected);
-                        } catch (Exception e) {
-                            System.out.println("Error starting the game, check the hero file");
-                        }
-                    }
-                    break;
-
-                case 3:
-                    System.exit(0);
-                    break;
-            }
         }
+    }
+
+    private void newHero(){
+        clear();
+        System.out.println("Enter a new hero name:");
+        String newName = scanner.nextLine();
+
+        controller.newHero(newName);
+
     }
 
     @Override

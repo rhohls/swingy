@@ -12,7 +12,8 @@ import java.awt.event.ActionListener;
 
 @Getter
 public class MenuSwingUI {
-    private GameState controller;
+    private GameState gameState;
+    private Controller controller;
 
     public JPanel getPanel1() {
         return panel1;
@@ -28,23 +29,30 @@ public class MenuSwingUI {
     private JComboBox heroSelectCombo;
     private JButton viewHeroBtn;
     private JButton submitBtn;
+    private JTextField newHeroNameTextField;
+    private JButton newHeroButton;
 
+
+    //todo Create new hero doesnt get added to list
+    //todo combo list gets doubled up
 
     public MenuSwingUI() {
         System.out.println("menu Constructor start");
 
-        this.controller = Controller.getInstance().getGameState();
+        this.gameState = Controller.getInstance().getGameState();
+        this.controller = Controller.getInstance();
 
         //hero selection
         viewHeroBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Hero hero = controller.heroFileInfo(heroSelectCombo.getSelectedItem().toString());
+                Hero hero = gameState.heroFileInfo(heroSelectCombo.getSelectedItem().toString());
                 displayInfo(hero);
             }
         });
 
 //        heroSelectCombo.actionPerformed();
+        // todo auto display info
 
         //start Game
         submitBtn.addActionListener(new ActionListener() {
@@ -56,6 +64,14 @@ public class MenuSwingUI {
                     e1.printStackTrace();
                     heroDisplay.setText("There was an error starting the game");
                 }
+            }
+        });
+
+        //
+        newHeroButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.newHero(newHeroNameTextField.getText());
             }
         });
 

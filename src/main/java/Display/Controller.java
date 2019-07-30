@@ -1,11 +1,11 @@
 package Display;
 
+import Characters.Hero;
 import Game.GameState;
 import Helper.FightResult;
 import lombok.Getter;
 import lombok.Setter;
 import uiForms.IDisplay;
-import uiForms.SwingUI;
 
 import javax.swing.*;
 import java.io.File;
@@ -44,7 +44,17 @@ public class Controller {
     }
 
     public void startGame(String heroName) throws Exception{
-        gameState.setHero(heroName);
+        gameState.setHeroFromFile(heroName);
+        gameState.initMap();
+
+        display.startGame();
+    }
+
+    public void newHero(String name){
+        Hero hero = new Hero(name, 10, 10, 10, 10, 1);
+
+        //bad, see above
+        gameState.setHero(hero);
         gameState.initMap();
 
         display.startGame();
