@@ -7,15 +7,23 @@
     {
       "name": "spear",
       "value": 4
+    },
+    {
+      "name": "Breast Plate",
+      "value": 9
+    },
+    {
+      "name": "Visor",
+      "value": 9
     }
   ],
   "level": 3,
-  "experience": 80,
+  "experience": 1680,
   "name": "Steve",
   "maxHP": 32,
   "attack": 53,
-  "defence": 101,
-  "HP": 15,
+  "defence": 110,
+  "HP": 24,
   "coordinates": {
     "x": 0,
     "y": 9,

@@ -24,18 +24,11 @@ public class Main {
             return;
         }
 
-        //Get hero files
-        try {
-            fileList = fm.getFiles();
-        }
-        catch (Exception e){
-            System.out.println("Error getting folders");
-            return;
-        }
+
 
         //init controller
         Controller controller = Controller.getInstance();
-        controller.init(fileList);
+//        controller.initFileList();
 
 
 //        System.out.println("test:");
@@ -55,6 +48,7 @@ public class Main {
 
 
         //UI
+        //todo switching
         if (args[0].toLowerCase().equals("console")) {
             UI = new ConsoleUI();
             System.out.println("made console");

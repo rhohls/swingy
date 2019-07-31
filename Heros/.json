@@ -1,0 +1,15 @@
+{
+  "itemList": [],
+  "level": 1,
+  "experience": 200,
+  "name": "",
+  "maxHP": 10,
+  "attack": 10,
+  "defence": 10,
+  "HP": 10,
+  "coordinates": {
+    "x": 9,
+    "y": 4,
+    "max": 9
+  }
+}

@@ -58,6 +58,7 @@ public class GameState {
     0. Normal move
     1. Fight
     2. Game end / beat map
+    3. Exit
      */
     public int move(String direction){
         switch (direction){
@@ -76,6 +77,9 @@ public class GameState {
             case "west":
                 hero.moveLeft();
                 break;
+
+            case "exit":
+                return 3;
         }
         //edge of map
         if (hero.coordinates.outOfBounds()){

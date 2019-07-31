@@ -22,7 +22,8 @@ public class SwingUI implements IDisplay {
 
     @Override
     public void openMainMenu(File[] fileList){
-        menuSwingUI.getHeroSelectCombo().removeItem("String");
+        menuSwingUI.getHeroSelectCombo().removeAllItems();
+
         for (int i=0; i < fileList.length; i++){
             String str = fileList[i].getName();
             menuSwingUI.getHeroSelectCombo().addItem(str);

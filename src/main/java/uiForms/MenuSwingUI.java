@@ -32,10 +32,6 @@ public class MenuSwingUI {
     private JTextField newHeroNameTextField;
     private JButton newHeroButton;
 
-
-    //todo Create new hero doesnt get added to list
-    //todo combo list gets doubled up
-
     public MenuSwingUI() {
         System.out.println("menu Constructor start");
 
@@ -51,7 +47,7 @@ public class MenuSwingUI {
             }
         });
 
-//        heroSelectCombo.actionPerformed();
+        // heroSelectCombo.actionPerformed();
         // todo auto display info
 
         //start Game
@@ -79,7 +75,7 @@ public class MenuSwingUI {
     }
 
 //    private void createUIComponents() {
-//        // TODO: place custom component creation code here
+//        // : place custom component creation code here
 //        heroSelectCombo = new JComboBox();
 //
 //    }

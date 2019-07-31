@@ -56,7 +56,7 @@ public class ConsoleUI  implements IDisplay {
             else
                 System.out.println("No hero selected");
 
-            System.out.println("1. Select new hero");
+            System.out.println("1. Select hero");
             System.out.println("2. Play Game");
             System.out.println("3. Create new hero and start");
             System.out.println("4. Exit");
@@ -118,6 +118,7 @@ public class ConsoleUI  implements IDisplay {
     public void updateDisplay() {
         clear();
 
+        //todo more info
         System.out.println("Name: " + controller.getGameState().getHero().getName());
         System.out.println();
         System.out.println("HP: " + controller.getGameState().getHero().getHP());
@@ -132,6 +133,8 @@ public class ConsoleUI  implements IDisplay {
         String move = inputDirection();
         controller.move(move);
     }
+
+    //todo fix exit
 
     private String inputDirection(){
         while(true){
@@ -211,9 +214,11 @@ public class ConsoleUI  implements IDisplay {
         System.out.println("Damage taken: " + result.damageTaken + "\n");
         if (result.levelUp)
             System.out.println("You leveled up" + "\n");
-        if (result.itemDropped != null)
+        if (result.itemDropped != null) {
             System.out.println("You got a new item");
-
+            System.out.println("It is a " + result.itemDropped.name);
+            System.out.println(" with value " + result.itemDropped.value);
+        }
         cont();
     }
 

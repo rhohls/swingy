@@ -33,7 +33,6 @@ public class Hero extends BasicCharacter{
 
 
     public boolean addExperience(int amount){
-        //todo
         experience += amount;
 
         if (levelUp()){

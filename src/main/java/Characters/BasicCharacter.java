@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.NonNull;
 
+
+//todo anonotation validation
 @Getter
 public class BasicCharacter {
 

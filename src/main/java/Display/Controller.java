@@ -3,6 +3,7 @@ package Display;
 import Characters.Hero;
 import Game.GameState;
 import Helper.FightResult;
+import Helper.FileManipulation;
 import lombok.Getter;
 import lombok.Setter;
 import uiForms.IDisplay;
@@ -18,6 +19,7 @@ public class Controller {
     }
     public Controller(){}
 
+    private FileManipulation fm = new FileManipulation();
 
     public static GameState getGameState() {
         return gameState;
@@ -35,11 +37,19 @@ public class Controller {
     private JFrame frame;
     private File[] fileList;
 
-    public void init(File[] fileList){
-        this.fileList = fileList;
+    private void initFileList(){
+        //Get hero files
+        try {
+            fileList = fm.getFiles();
+        }
+        catch (Exception e){
+            System.out.println("Error getting hero files");
+            System.exit(0);
+        }
     }
 
     public void openMainMenu(){
+        initFileList();
         display.openMainMenu(fileList);
     }
 
@@ -64,6 +74,7 @@ public class Controller {
     0. Normal move
     1. Fight
     2. Game end
+    3. Exit
     */
 
     public void move(String direction){
@@ -80,6 +91,8 @@ public class Controller {
                     display.failSave();
                 openMainMenu();
                 break;
+            case 3:
+                System.exit(0);
         }
     }
 
