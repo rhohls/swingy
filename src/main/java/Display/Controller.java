@@ -20,6 +20,10 @@ public class Controller {
     public Controller(){}
 
     private FileManipulation fm = new FileManipulation();
+    @Setter
+    private IDisplay display;
+    private File[] fileList;
+
 
     public static GameState getGameState() {
         return gameState;
@@ -31,11 +35,6 @@ public class Controller {
     public void setDisplay(IDisplay display) {
         this.display = display;
     }
-
-    @Setter
-    private IDisplay display;
-    private JFrame frame;
-    private File[] fileList;
 
     private void initFileList(){
         //Get hero files

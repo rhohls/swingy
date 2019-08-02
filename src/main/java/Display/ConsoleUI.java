@@ -7,8 +7,6 @@ import uiForms.IDisplay;
 import java.io.File;
 import java.util.Scanner;
 
-//FIX LOOP BEING HANDLED.   LOGIC???
-
 public class ConsoleUI  implements IDisplay {
     String heroSelected;
     File[] heroList;
@@ -65,7 +63,6 @@ public class ConsoleUI  implements IDisplay {
             int choice = -1;
             try {
                 choice = Integer.parseInt(scanner.nextLine());
-
                 switch (choice) {
 
                     case 1:
@@ -90,13 +87,10 @@ public class ConsoleUI  implements IDisplay {
                         System.exit(0);
                         break;
                 }
-
             }
             catch (Exception e){
                 //ignore non numbers
             }
-
-
         }
     }
 
@@ -133,8 +127,6 @@ public class ConsoleUI  implements IDisplay {
         String move = inputDirection();
         controller.move(move);
     }
-
-    //todo fix exit
 
     private String inputDirection(){
         while(true){
@@ -211,14 +203,17 @@ public class ConsoleUI  implements IDisplay {
 
     @Override
     public void fightResult(FightResult result) {
-        System.out.println("Damage taken: " + result.damageTaken + "\n");
-        if (result.levelUp)
-            System.out.println("You leveled up" + "\n");
+        System.out.println("You defeated your enemy but took: " + result.damageTaken + " points of damage\n");
+        //item
         if (result.itemDropped != null) {
             System.out.println("You got a new item");
             System.out.println("It is a " + result.itemDropped.name);
             System.out.println(" with value " + result.itemDropped.value);
         }
+        //levelup
+        if (result.levelUp)
+            System.out.println("You leveled up" + "\n");
+
         cont();
     }
 
