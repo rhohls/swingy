@@ -1,12 +1,9 @@
 package Helper;
 
 import Characters.Hero;
-import Items.Weapon;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import java.io.*;
-import java.util.Scanner;
 import java.util.Set;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;

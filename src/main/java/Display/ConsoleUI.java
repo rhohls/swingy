@@ -1,8 +1,7 @@
 package Display;
 
-import Characters.Hero;
+import Game.Controller;
 import Helper.FightResult;
-import uiForms.IDisplay;
 
 import java.io.File;
 import java.util.Scanner;

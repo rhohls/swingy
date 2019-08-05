@@ -1,14 +1,11 @@
-package Display;
+package Game;
 
 import Characters.Hero;
-import Game.GameState;
 import Helper.FightResult;
 import Helper.FileManipulation;
 import lombok.Getter;
 import lombok.Setter;
-import uiForms.IDisplay;
-
-import javax.swing.*;
+import Display.IDisplay;
 import java.io.File;
 
 public class Controller {
@@ -23,7 +20,6 @@ public class Controller {
     @Setter
     private IDisplay display;
     private File[] fileList;
-
 
     public static GameState getGameState() {
         return gameState;

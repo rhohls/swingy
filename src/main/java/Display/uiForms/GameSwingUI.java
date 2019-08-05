@@ -1,6 +1,6 @@
-package uiForms;
+package Display.uiForms;
 
-import Display.Controller;
+import Game.Controller;
 import Helper.FightResult;
 import lombok.Getter;
 

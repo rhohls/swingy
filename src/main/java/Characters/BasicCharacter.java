@@ -12,7 +12,6 @@ import javax.validation.constraints.NotNull;
 @Getter
 public class BasicCharacter {
 
-
     @NotNull
     @Min(1)
     String name;
@@ -22,12 +21,6 @@ public class BasicCharacter {
     public int HP;
     @Setter public CoOrdinates coordinates;
 
-//    int modAttack;
-//    int modDefence;
-//    int modHP;
-
-//    BasicCharacter(){}
-
     BasicCharacter(String name, int HP, int attack, int defence, int maxHP){
         this.name = name;
         this.maxHP = maxHP;
@@ -36,27 +29,6 @@ public class BasicCharacter {
         this.HP = HP;
         this.coordinates = new CoOrdinates(0,0);
     }
-
-
-    int makeAttack(){
-        return attack;
-    }
-
-    void takeDamage(int damageAmount){
-        damageAmount -= defence;
-        if (damageAmount < 0)
-            damageAmount = 0;
-
-    }
-
-
-//    private void modifyStats(){
-//        modAttack = attack;
-//        modDefence = defence;
-//        for (Item item: this.itemList) {
-//
-//        }
-//    }
 
     public void moveUp(){
         coordinates.setY(coordinates.getY() + 1);

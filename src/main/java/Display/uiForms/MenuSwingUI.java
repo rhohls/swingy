@@ -1,7 +1,7 @@
-package uiForms;
+package Display.uiForms;
 
 import Characters.Hero;
-import Display.Controller;
+import Game.Controller;
 import Game.GameState;
 import lombok.Getter;
 

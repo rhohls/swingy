@@ -2,12 +2,10 @@ package Characters;
 
 import Items.*;
 import lombok.Getter;
-
 import java.util.ArrayList;
 
 @Getter
 public class Hero extends BasicCharacter{
-
     ArrayList<Item> itemList;
     int level;
     int experience;
@@ -19,7 +17,6 @@ public class Hero extends BasicCharacter{
         itemList = new ArrayList<Item>();
     }
 
-
     public void addItems(Item item){
         itemList.add(item);
 
@@ -30,7 +27,6 @@ public class Hero extends BasicCharacter{
         else if (item instanceof Weapon)
             attack += item.getValue();
     }
-
 
     public boolean addExperience(int amount){
         experience += amount;

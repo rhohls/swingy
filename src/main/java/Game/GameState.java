@@ -114,11 +114,6 @@ public class GameState {
             mod += 33;
         }
 
-
-
-
-
-
         //always add exp? what about when dead
         if(hero.addExperience(enemy.experience))
             result.levelUp = true;
@@ -162,7 +157,6 @@ public class GameState {
     }
 
     private Enemy createEnemy(int heroLevel){
-
         int experience = heroLevel * 200 + ((heroLevel - 1) * 100);
         int defence = heroLevel * 3;
         Enemy enemy = new Enemy("Enemy", 10,15, defence,10, experience);

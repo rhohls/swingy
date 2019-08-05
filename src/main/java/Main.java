@@ -1,11 +1,11 @@
 import Display.ConsoleUI;
-import Display.Controller;
+import Game.Controller;
 
 import java.io.*;
 
 import Helper.FileManipulation;
-import uiForms.IDisplay;
-import uiForms.SwingUI;
+import Display.IDisplay;
+import Display.SwingUI;
 
 public class Main {
 

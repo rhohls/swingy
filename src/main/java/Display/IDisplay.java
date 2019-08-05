@@ -1,4 +1,4 @@
-package uiForms;
+package Display;
 
 import Helper.FightResult;
 
