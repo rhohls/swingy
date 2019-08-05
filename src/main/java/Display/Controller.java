@@ -59,10 +59,10 @@ public class Controller {
         display.startGame();
     }
 
-    public void newHero(String name){
-        Hero hero = new Hero(name, 10, 10, 10, 10, 1);
+    public void newHero(String name) throws Exception {
+        Hero hero = fm.newHero(name);
 
-        //bad, see above
+        //bad (repeated code, see above)
         gameState.setHero(hero);
         gameState.initMap();
 

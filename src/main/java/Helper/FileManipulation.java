@@ -5,18 +5,24 @@ import Items.Weapon;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-
-//import javax.validation.ConstraintViolation;
-//import javax.validation.Validation;
-//import javax.validation.Validator;
-//import javax.validation.ValidatorFactory;
 import java.io.*;
 import java.util.Scanner;
 import java.util.Set;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
 
 public class FileManipulation {
-    public void writeHeroToFile(Hero hero, String fileOutputName) throws Exception{
 
+    private static Validator validator;
+
+    public FileManipulation() {
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        validator = factory.getValidator();
+    }
+
+    public void writeHeroToFile(Hero hero, String fileOutputName) throws Exception{
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         String json = gson.toJson(hero);
@@ -33,7 +39,8 @@ public class FileManipulation {
         BufferedReader reader = new BufferedReader(new FileReader("Heros/" + fileName));
         newHero = gson.fromJson(reader,  Hero.class);
 
-        if (newHero == null)
+        if (newHero == null ||
+            !validateHero(newHero))
             throw new Exception("Hero could not be created. Error with file: " + fileName );
 
         return (newHero);
@@ -52,5 +59,24 @@ public class FileManipulation {
             }
         });
         return files;
+    }
+
+    public Hero newHero(String name) throws Exception{
+        Hero newHero = new Hero(name, 10, 10, 10, 10, 1);
+
+        if (!validateHero(newHero))
+            throw new Exception("Hero could not be created.");
+
+        return (newHero);
+    }
+
+    private boolean validateHero(Hero hero){
+        Set<ConstraintViolation<Hero>> constraintViolations =
+                validator.validate( hero );
+
+        if (constraintViolations.size() > 0)
+            return false;
+        else
+            return true;
     }
 }

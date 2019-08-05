@@ -67,7 +67,11 @@ public class MenuSwingUI {
         newHeroButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.newHero(newHeroNameTextField.getText());
+                try {
+                    controller.newHero(newHeroNameTextField.getText());
+                } catch (Exception ex) {
+                    heroDisplay.setText("There was an error creating the hero");
+                }
             }
         });
 

@@ -6,13 +6,16 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.NonNull;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
-//todo anonotation validation
 @Getter
 public class BasicCharacter {
 
 
-    @NonNull String name;
+    @NotNull
+    @Min(1)
+    String name;
     int maxHP;
     int attack;
     int defence;

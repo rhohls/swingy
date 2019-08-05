@@ -96,11 +96,18 @@ public class ConsoleUI  implements IDisplay {
 
     private void newHero(){
         clear();
-        System.out.println("Enter a new hero name:");
-        String newName = scanner.nextLine();
+        while(true){
+            try {
+                System.out.println("Enter a new hero name:");
+                String newName = scanner.nextLine();
 
-        controller.newHero(newName);
-
+                controller.newHero(newName);
+                break;
+            }
+            catch (Exception e){
+                System.out.println("Failed at creating hero. Please try again");
+            }
+        }
     }
 
     @Override
@@ -115,6 +122,7 @@ public class ConsoleUI  implements IDisplay {
         //todo more info
         System.out.println("Name: " + controller.getGameState().getHero().getName());
         System.out.println();
+        System.out.println("Level: " + controller.getGameState().getHero().getLevel());
         System.out.println("HP: " + controller.getGameState().getHero().getHP());
         System.out.println("Attack: " + controller.getGameState().getHero().getAttack());
         System.out.println("Defense: " + controller.getGameState().getHero().getDefence());
@@ -204,13 +212,15 @@ public class ConsoleUI  implements IDisplay {
     @Override
     public void fightResult(FightResult result) {
         System.out.println("You defeated your enemy but took: " + result.damageTaken + " points of damage\n");
+
         //item
         if (result.itemDropped != null) {
             System.out.println("You got a new item");
             System.out.println("It is a " + result.itemDropped.name);
             System.out.println(" with value " + result.itemDropped.value);
         }
-        //levelup
+
+        //level up
         if (result.levelUp)
             System.out.println("You leveled up" + "\n");
 

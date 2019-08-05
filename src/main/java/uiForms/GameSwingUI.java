@@ -118,14 +118,15 @@ public class GameSwingUI {
     }
 
     public void fightResult(FightResult result) {
-        infoAreaTxt.append("Damage taken: " + result.damageTaken + "\n");
-        if (result.levelUp)
-            infoAreaTxt.append("You leveled up" + "\n");
+        infoAreaTxt.append("You defeated your enemy but took: " + result.damageTaken + "points of damage\n");
+
         if (result.itemDropped != null){
             infoAreaTxt.append("You got an item\n");
             infoAreaTxt.append("It is a " + result.itemDropped.name);
             infoAreaTxt.append(" with value " + result.itemDropped.value);
 
+        if (result.levelUp)
+            infoAreaTxt.append("You leveled up" + "\n");
         }
 
 
