@@ -30,7 +30,6 @@ public class FileManipulation {
 
     public Hero createFromFile(String fileName) throws Exception{
         Gson gson = new GsonBuilder().create();
-        String json = "";
         Hero newHero;
 
         BufferedReader reader = new BufferedReader(new FileReader("Heros/" + fileName));
