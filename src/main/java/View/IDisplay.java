@@ -1,4 +1,4 @@
-package Display;
+package View;
 
 import Helper.FightResult;
 

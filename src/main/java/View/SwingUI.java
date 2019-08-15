@@ -1,8 +1,8 @@
-package Display;
+package View;
 
 import Helper.FightResult;
-import Display.uiForms.GameSwingUI;
-import Display.uiForms.MenuSwingUI;
+import View.uiForms.GameSwingUI;
+import View.uiForms.MenuSwingUI;
 
 import javax.swing.*;
 import java.io.File;

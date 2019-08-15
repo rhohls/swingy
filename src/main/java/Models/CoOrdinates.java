@@ -1,4 +1,4 @@
-package Game;
+package Models;
 
 import lombok.Getter;
 import lombok.Setter;

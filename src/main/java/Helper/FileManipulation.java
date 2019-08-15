@@ -1,6 +1,6 @@
 package Helper;
 
-import Characters.Hero;
+import Models.Hero;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.*;

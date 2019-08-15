@@ -1,6 +1,5 @@
-package Game;
+package Models;
 
-import Characters.Enemy;
 import lombok.Getter;
 
 import java.util.ArrayList;

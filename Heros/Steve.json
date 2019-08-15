@@ -15,15 +15,27 @@
     {
       "name": "Visor",
       "value": 9
+    },
+    {
+      "name": "Sword",
+      "value": 9
+    },
+    {
+      "name": "Visor",
+      "value": 9
+    },
+    {
+      "name": "Visor",
+      "value": 11
     }
   ],
-  "level": 3,
-  "experience": 2480,
+  "level": 4,
+  "experience": 7080,
   "name": "Steve",
   "maxHP": 32,
-  "attack": 53,
+  "attack": 62,
   "defence": 110,
-  "HP": 24,
+  "HP": 44,
   "coordinates": {
     "x": 0,
     "y": 9,

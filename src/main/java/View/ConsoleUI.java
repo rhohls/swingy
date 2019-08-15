@@ -1,6 +1,6 @@
-package Display;
+package View;
 
-import Game.Controller;
+import Controller.Controller;
 import Helper.FightResult;
 
 import java.io.File;
@@ -54,7 +54,7 @@ public class ConsoleUI  implements IDisplay {
                 System.out.println("No hero selected");
 
             System.out.println("1. Select hero");
-            System.out.println("2. Play Game");
+            System.out.println("2. Play Controller");
             System.out.println("3. Create new hero and start");
             System.out.println("4. Exit");
 

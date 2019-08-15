@@ -1,4 +1,4 @@
-package Characters;
+package Models;
 
 import Items.*;
 import lombok.Getter;

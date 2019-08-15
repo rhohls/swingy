@@ -1,15 +1,14 @@
-package Game;
+package Controller;
 
-import Characters.Enemy;
-import Characters.Hero;
-import Display.*;
+import Models.Enemy;
+import Models.Hero;
 import Helper.FightResult;
 import Helper.FileManipulation;
 import Items.Armor;
 import Items.Helm;
 import Items.Item;
 import Items.Weapon;
-import lombok.Getter;
+import Models.Map;
 
 import java.util.Random;
 
@@ -57,7 +56,7 @@ public class GameState {
     /*
     0. Normal move
     1. Fight
-    2. Game end / beat map
+    2. Controller end / beat map
     3. Exit
      */
     public int move(String direction){

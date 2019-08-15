@@ -1,12 +1,11 @@
-package Display.uiForms;
+package View.uiForms;
 
-import Characters.Hero;
-import Game.Controller;
-import Game.GameState;
+import Models.Hero;
+import Controller.Controller;
+import Controller.GameState;
 import lombok.Getter;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -50,7 +49,7 @@ public class MenuSwingUI {
         // heroSelectCombo.actionPerformed();
         // todo auto display info
 
-        //start Game
+        //start Controller
         submitBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -63,7 +62,7 @@ public class MenuSwingUI {
             }
         });
 
-        //
+        //create new hero
         newHeroButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

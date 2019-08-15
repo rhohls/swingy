@@ -1,19 +1,16 @@
-package Characters;
+package Models;
 
-import Game.CoOrdinates;
-import Items.*;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.NonNull;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 @Getter
 public class BasicCharacter {
 
-    @NotNull
-    @Min(1)
+//    @NotNull
+//    @Min(1)
+    @NotBlank
     String name;
     int maxHP;
     int attack;

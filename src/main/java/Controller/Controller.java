@@ -1,11 +1,11 @@
-package Game;
+package Controller;
 
-import Characters.Hero;
+import Models.Hero;
 import Helper.FightResult;
 import Helper.FileManipulation;
 import lombok.Getter;
 import lombok.Setter;
-import Display.IDisplay;
+import View.IDisplay;
 import java.io.File;
 
 public class Controller {
@@ -58,6 +58,8 @@ public class Controller {
     public void newHero(String name) throws Exception {
         Hero hero = fm.newHero(name);
 
+        System.out.println("madehero");
+
         //bad (repeated code, see above)
         gameState.setHero(hero);
         gameState.initMap();
@@ -68,7 +70,7 @@ public class Controller {
     /*
     0. Normal move
     1. Fight
-    2. Game end
+    2. Controller end
     3. Exit
     */
 

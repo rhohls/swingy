@@ -1,11 +1,10 @@
-package Display.uiForms;
+package View.uiForms;
 
-import Game.Controller;
+import Controller.Controller;
 import Helper.FightResult;
 import lombok.Getter;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -85,6 +84,7 @@ public class GameSwingUI {
 
         infoAreaTxt.append("Name: " + controller.getGameState().getHero().getName() + "\n");
         infoAreaTxt.append("" + "\n");
+        infoAreaTxt.append("Level: " + controller.getGameState().getHero().getLevel() + "\n");
         infoAreaTxt.append("HP: " + controller.getGameState().getHero().getHP() + "\n");
         infoAreaTxt.append("Attack: " + controller.getGameState().getHero().getAttack() + "\n");
         infoAreaTxt.append("Defense: " + controller.getGameState().getHero().getDefence() + "\n");

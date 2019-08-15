@@ -1,4 +1,4 @@
-package Characters;
+package Models;
 
 public class Enemy extends BasicCharacter{
     public int experience;
