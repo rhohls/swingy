@@ -1,0 +1,20 @@
+{
+  "itemList": [
+    {
+      "name": "Sword",
+      "value": 5
+    }
+  ],
+  "level": 2,
+  "experience": 1500,
+  "name": "skorac",
+  "maxHP": 10,
+  "attack": 15,
+  "defence": 10,
+  "HP": 10,
+  "coordinates": {
+    "x": 4,
+    "y": 9,
+    "max": 9
+  }
+}

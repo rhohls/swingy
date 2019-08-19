@@ -96,7 +96,7 @@ public class GameState {
         int mod = 0;
 
         Enemy enemy = createEnemy(hero.getLevel());
-        int damage = 3;
+        int damage = 4 + 3 * (hero.getLevel() - 1);
 
         while(true) {
             int roll = random.nextInt(100);
@@ -157,7 +157,7 @@ public class GameState {
 
     private Enemy createEnemy(int heroLevel){
         int experience = heroLevel * 200 + ((heroLevel - 1) * 100);
-        int defence = heroLevel * 3;
+        int defence = 15 + (heroLevel - 1) * 3;
         Enemy enemy = new Enemy("Enemy", 10,15, defence,10, experience);
         return enemy;
     }

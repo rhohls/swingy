@@ -58,7 +58,7 @@ public class Controller {
     public void newHero(String name) throws Exception {
         Hero hero = fm.newHero(name);
 
-        System.out.println("madehero");
+//        System.out.println("madehero");
 
         //bad (repeated code, see above)
         gameState.setHero(hero);
@@ -70,7 +70,7 @@ public class Controller {
     /*
     0. Normal move
     1. Fight
-    2. Controller end
+    2. game end
     3. Exit
     */
 

@@ -54,7 +54,7 @@ public class ConsoleUI  implements IDisplay {
                 System.out.println("No hero selected");
 
             System.out.println("1. Select hero");
-            System.out.println("2. Play Controller");
+            System.out.println("2. Play Game");
             System.out.println("3. Create new hero and start");
             System.out.println("4. Exit");
 
@@ -178,11 +178,14 @@ public class ConsoleUI  implements IDisplay {
 
                 case "fight":
                 case "f":
+                case "y":
+                case "yes":
                     controller.chooseFight();
                     break fightloop;
 
                 case "run":
                 case "r":
+                case "n":
                     controller.runAway();
                     break fightloop;
 
