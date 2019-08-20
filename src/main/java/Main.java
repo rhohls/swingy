@@ -27,7 +27,6 @@ public class Main {
         //init controller
         Controller controller = Controller.getInstance();
 
-
         //UI
         //todo switching
         if (args[0].toLowerCase().equals("console")) {

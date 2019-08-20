@@ -32,6 +32,7 @@ public class SwingUI implements IDisplay {
         }
 
         frame.setContentPane(menuSwingUI.getPanel1());
+        frame.setSize(600,400);
         frame.pack();
         frame.setVisible(true);
     }
