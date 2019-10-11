@@ -1,6 +1,6 @@
 package Helper;
 
-import Items.Item;
+import Models.Items.Item;
 
 public class FightResult {
     public int damageDealt;

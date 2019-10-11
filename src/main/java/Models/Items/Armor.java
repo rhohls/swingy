@@ -1,4 +1,4 @@
-package Items;
+package Models.Items;
 
 public class Armor extends Item {
     public Armor(int value) {

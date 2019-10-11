@@ -1,4 +1,4 @@
-package Items;
+package Models.Items;
 
 public class Item {
     public String name;

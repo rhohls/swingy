@@ -1,6 +1,6 @@
 package Models;
 
-import Items.*;
+import Models.Items.*;
 import lombok.Getter;
 import java.util.ArrayList;
 

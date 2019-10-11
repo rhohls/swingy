@@ -2,7 +2,7 @@ package View.uiForms;
 
 import Models.Hero;
 import Controller.Controller;
-import Controller.GameState;
+import Models.GameState;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;

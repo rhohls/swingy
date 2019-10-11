@@ -1,14 +1,11 @@
-package Controller;
+package Models;
 
-import Models.Enemy;
-import Models.Hero;
 import Helper.FightResult;
 import Helper.FileManipulation;
-import Items.Armor;
-import Items.Helm;
-import Items.Item;
-import Items.Weapon;
-import Models.Map;
+import Models.Items.Armor;
+import Models.Items.Helm;
+import Models.Items.Item;
+import Models.Items.Weapon;
 
 import java.util.Random;
 

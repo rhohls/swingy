@@ -1,4 +1,4 @@
-package Items;
+package Models.Items;
 
 public class Helm extends Item {
     public Helm(int value) {
